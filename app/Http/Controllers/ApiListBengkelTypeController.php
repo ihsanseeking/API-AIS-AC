@@ -5,11 +5,11 @@
 		use DB;
 		use CRUDBooster;
 
-		class ApiListAreaController extends \crocodicstudio\crudbooster\controllers\ApiController {
+		class ApiListBengkelTypeController extends \crocodicstudio\crudbooster\controllers\ApiController {
 
 		    function __construct() {    
-				$this->table       = "ref_area";        
-				$this->permalink   = "list_area";    
+				$this->table       = "ref_bengkel_type";        
+				$this->permalink   = "list_bengkel_type";    
 				$this->method_type = "get";    
 		    }
 		

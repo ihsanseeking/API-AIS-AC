@@ -8,7 +8,7 @@
 		class ApiListUserGroupController extends \crocodicstudio\crudbooster\controllers\ApiController {
 
 		    function __construct() {    
-				$this->table       = "user_group";        
+				$this->table       = "ref_user_group";        
 				$this->permalink   = "list_user_group";    
 				$this->method_type = "get";    
 		    }
