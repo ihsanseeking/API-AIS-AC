@@ -181,6 +181,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+		Ixudra\Curl\CurlServiceProvider::class,
+
 
     ],
 
@@ -233,6 +235,7 @@ return [
 		'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 		'Image' => Intervention\Image\Facades\Image::class,
 		'CRUDBooster' => crocodicstudio\crudbooster\helpers\CRUDBooster::class,
+		'Curl'          => Ixudra\Curl\Facades\Curl::class,
     ],
 
 ];

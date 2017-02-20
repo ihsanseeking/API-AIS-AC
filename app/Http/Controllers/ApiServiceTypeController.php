@@ -5,11 +5,11 @@
 		use DB;
 		use CRUDBooster;
 
-		class ApiListServiceTypeController extends \crocodicstudio\crudbooster\controllers\ApiController {
+		class ApiServiceTypeController extends \crocodicstudio\crudbooster\controllers\ApiController {
 
 		    function __construct() {    
 				$this->table       = "ref_service_type";        
-				$this->permalink   = "list_service_type";    
+				$this->permalink   = "service_type";    
 				$this->method_type = "get";    
 		    }
 		
