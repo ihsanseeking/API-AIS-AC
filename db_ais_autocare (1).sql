@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2017 at 03:23 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.6
+-- Generation Time: 20 Feb 2017 pada 13.53
+-- Versi Server: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bengkel`
+-- Struktur dari tabel `bengkel`
 --
 
 CREATE TABLE `bengkel` (
@@ -46,7 +46,7 @@ CREATE TABLE `bengkel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bengkel`
+-- Dumping data untuk tabel `bengkel`
 --
 
 INSERT INTO `bengkel` (`id`, `name`, `ref_bengkel_type_id`, `address`, `latitude`, `longitude`, `ref_area_id`, `phone`, `fax`, `email`, `contact_person1_id`, `contact_person2_id`, `owner_id`, `max_order`, `account_number`, `account_name`) VALUES
@@ -55,7 +55,7 @@ INSERT INTO `bengkel` (`id`, `name`, `ref_bengkel_type_id`, `address`, `latitude
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_apicustom`
+-- Struktur dari tabel `cms_apicustom`
 --
 
 CREATE TABLE `cms_apicustom` (
@@ -78,7 +78,7 @@ CREATE TABLE `cms_apicustom` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cms_apicustom`
+-- Dumping data untuk tabel `cms_apicustom`
 --
 
 INSERT INTO `cms_apicustom` (`id`, `created_at`, `updated_at`, `permalink`, `tabel`, `aksi`, `kolom`, `orderby`, `sub_query_1`, `sql_where`, `nama`, `keterangan`, `parameter`, `method_type`, `parameters`, `responses`) VALUES
@@ -98,12 +98,13 @@ INSERT INTO `cms_apicustom` (`id`, `created_at`, `updated_at`, `permalink`, `tab
 (14, NULL, NULL, 'list_bengkel_type', 'ref_bengkel_type', 'list', NULL, NULL, NULL, '', 'List Bengkel Type', '<p>List Bengkel Type<br></p>', NULL, 'get', 'a:4:{i:0;a:5:{s:4:"name";s:2:"id";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:1;a:5:{s:4:"name";s:4:"name";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:2;a:5:{s:4:"name";s:5:"wheel";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:3;a:5:{s:4:"name";s:4:"size";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}}', 'a:4:{i:0;a:4:{s:4:"name";s:2:"id";s:4:"type";s:3:"int";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:1;a:4:{s:4:"name";s:4:"name";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:2;a:4:{s:4:"name";s:5:"wheel";s:4:"type";s:3:"int";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:3;a:4:{s:4:"name";s:4:"size";s:4:"type";s:4:"enum";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}}'),
 (15, NULL, NULL, 'list_service_type', 'ref_service_type', 'list', NULL, NULL, NULL, '', 'List Service Type', '<p>Daftar Tipe Service<br></p>', NULL, 'get', 'a:6:{i:0;a:5:{s:4:"name";s:2:"id";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:1;a:5:{s:4:"name";s:5:"wheel";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:2;a:5:{s:4:"name";s:4:"name";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:3;a:5:{s:4:"name";s:11:"description";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:4;a:5:{s:4:"name";s:8:"category";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:5;a:5:{s:4:"name";s:4:"note";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}}', 'a:6:{i:0;a:4:{s:4:"name";s:2:"id";s:4:"type";s:3:"int";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:1;a:4:{s:4:"name";s:5:"wheel";s:4:"type";s:3:"int";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:2;a:4:{s:4:"name";s:4:"name";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:3;a:4:{s:4:"name";s:11:"description";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:4;a:4:{s:4:"name";s:8:"category";s:4:"type";s:4:"enum";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:5;a:4:{s:4:"name";s:4:"note";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}}'),
 (16, NULL, NULL, 'list_spare_part', 'ref_spare_part', 'list', NULL, NULL, NULL, '', 'List Spare Part', '<p>List Spare Part<br></p>', NULL, 'get', 'a:6:{i:0;a:5:{s:4:"name";s:2:"id";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:1;a:5:{s:4:"name";s:4:"name";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:2;a:5:{s:4:"name";s:5:"brand";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:3;a:5:{s:4:"name";s:4:"tipe";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:4;a:5:{s:4:"name";s:11:"ref_part_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:5;a:5:{s:4:"name";s:4:"note";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}}', 'a:6:{i:0;a:4:{s:4:"name";s:2:"id";s:4:"type";s:3:"int";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:1;a:4:{s:4:"name";s:4:"name";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:2;a:4:{s:4:"name";s:5:"brand";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:3;a:4:{s:4:"name";s:4:"tipe";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:4;a:4:{s:4:"name";s:11:"ref_part_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:5;a:4:{s:4:"name";s:4:"note";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}}'),
-(17, NULL, NULL, 'list_bengkel', 'bengkel', 'list', NULL, NULL, NULL, '', 'List Bengkel', '<p>List Bengkel<br></p>', NULL, 'get', 'a:16:{i:0;a:5:{s:4:"name";s:2:"id";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:1;a:5:{s:4:"name";s:4:"name";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:2;a:5:{s:4:"name";s:19:"ref_bengkel_type_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:3;a:5:{s:4:"name";s:7:"address";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:4;a:5:{s:4:"name";s:8:"latitude";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:5;a:5:{s:4:"name";s:9:"longitude";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:6;a:5:{s:4:"name";s:11:"ref_area_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:7;a:5:{s:4:"name";s:5:"phone";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:8;a:5:{s:4:"name";s:3:"fax";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:9;a:5:{s:4:"name";s:5:"email";s:4:"type";s:5:"email";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:10;a:5:{s:4:"name";s:18:"contact_person1_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:11;a:5:{s:4:"name";s:18:"contact_person2_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:12;a:5:{s:4:"name";s:8:"owner_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:13;a:5:{s:4:"name";s:9:"max_order";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:14;a:5:{s:4:"name";s:14:"account_number";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:15;a:5:{s:4:"name";s:12:"account_name";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}}', 'a:16:{i:0;a:4:{s:4:"name";s:2:"id";s:4:"type";s:3:"int";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:1;a:4:{s:4:"name";s:4:"name";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:2;a:4:{s:4:"name";s:19:"ref_bengkel_type_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:3;a:4:{s:4:"name";s:7:"address";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:4;a:4:{s:4:"name";s:8:"latitude";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:5;a:4:{s:4:"name";s:9:"longitude";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:6;a:4:{s:4:"name";s:11:"ref_area_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:7;a:4:{s:4:"name";s:5:"phone";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:8;a:4:{s:4:"name";s:3:"fax";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:9;a:4:{s:4:"name";s:5:"email";s:4:"type";s:5:"email";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:10;a:4:{s:4:"name";s:18:"contact_person1_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:11;a:4:{s:4:"name";s:18:"contact_person2_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:12;a:4:{s:4:"name";s:8:"owner_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:13;a:4:{s:4:"name";s:9:"max_order";s:4:"type";s:3:"int";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:14;a:4:{s:4:"name";s:14:"account_number";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:15;a:4:{s:4:"name";s:12:"account_name";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}}');
+(17, NULL, NULL, 'list_bengkel', 'bengkel', 'list', NULL, NULL, NULL, '', 'List Bengkel', '<p>List Bengkel<br></p>', NULL, 'get', 'a:16:{i:0;a:5:{s:4:"name";s:2:"id";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:1;a:5:{s:4:"name";s:4:"name";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:2;a:5:{s:4:"name";s:19:"ref_bengkel_type_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:3;a:5:{s:4:"name";s:7:"address";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:4;a:5:{s:4:"name";s:8:"latitude";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:5;a:5:{s:4:"name";s:9:"longitude";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:6;a:5:{s:4:"name";s:11:"ref_area_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:7;a:5:{s:4:"name";s:5:"phone";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:8;a:5:{s:4:"name";s:3:"fax";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:9;a:5:{s:4:"name";s:5:"email";s:4:"type";s:5:"email";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:10;a:5:{s:4:"name";s:18:"contact_person1_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:11;a:5:{s:4:"name";s:18:"contact_person2_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:12;a:5:{s:4:"name";s:8:"owner_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:13;a:5:{s:4:"name";s:9:"max_order";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:14;a:5:{s:4:"name";s:14:"account_number";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}i:15;a:5:{s:4:"name";s:12:"account_name";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"0";s:4:"used";s:1:"0";}}', 'a:16:{i:0;a:4:{s:4:"name";s:2:"id";s:4:"type";s:3:"int";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:1;a:4:{s:4:"name";s:4:"name";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:2;a:4:{s:4:"name";s:19:"ref_bengkel_type_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:3;a:4:{s:4:"name";s:7:"address";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:4;a:4:{s:4:"name";s:8:"latitude";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:5;a:4:{s:4:"name";s:9:"longitude";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:6;a:4:{s:4:"name";s:11:"ref_area_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:7;a:4:{s:4:"name";s:5:"phone";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:8;a:4:{s:4:"name";s:3:"fax";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:9;a:4:{s:4:"name";s:5:"email";s:4:"type";s:5:"email";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:10;a:4:{s:4:"name";s:18:"contact_person1_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:11;a:4:{s:4:"name";s:18:"contact_person2_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:12;a:4:{s:4:"name";s:8:"owner_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:13;a:4:{s:4:"name";s:9:"max_order";s:4:"type";s:3:"int";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:14;a:4:{s:4:"name";s:14:"account_number";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:15;a:4:{s:4:"name";s:12:"account_name";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}}'),
+(18, NULL, NULL, 'order', 'order', 'save_add', NULL, NULL, NULL, '', 'POST Order', '', NULL, 'post', 'a:15:{i:0;a:5:{s:4:"name";s:11:"customer_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:1;a:5:{s:4:"name";s:10:"order_date";s:4:"type";s:4:"date";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:2;a:5:{s:4:"name";s:10:"order_time";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:3;a:5:{s:4:"name";s:12:"service_date";s:4:"type";s:4:"date";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:4;a:5:{s:4:"name";s:12:"service_time";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:5;a:5:{s:4:"name";s:16:"service_location";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:6;a:5:{s:4:"name";s:8:"latitude";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:7;a:5:{s:4:"name";s:9:"longitude";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:8;a:5:{s:4:"name";s:7:"area_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:9;a:5:{s:4:"name";s:12:"is_emergency";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:10;a:5:{s:4:"name";s:13:"license_plate";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:11;a:5:{s:4:"name";s:14:"ref_service_id";s:4:"type";s:7:"integer";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:12;a:5:{s:4:"name";s:6:"status";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:13;a:5:{s:4:"name";s:6:"method";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}i:14;a:5:{s:4:"name";s:14:"payment_status";s:4:"type";s:6:"string";s:6:"config";s:0:"";s:8:"required";s:1:"1";s:4:"used";s:1:"1";}}', 'a:16:{i:0;a:4:{s:4:"name";s:2:"id";s:4:"type";s:3:"int";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:1;a:4:{s:4:"name";s:11:"customer_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:2;a:4:{s:4:"name";s:10:"order_date";s:4:"type";s:4:"date";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:3;a:4:{s:4:"name";s:10:"order_time";s:4:"type";s:4:"time";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:4;a:4:{s:4:"name";s:12:"service_date";s:4:"type";s:4:"date";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:5;a:4:{s:4:"name";s:12:"service_time";s:4:"type";s:4:"time";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:6;a:4:{s:4:"name";s:16:"service_location";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:7;a:4:{s:4:"name";s:8:"latitude";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:8;a:4:{s:4:"name";s:9:"longitude";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:9;a:4:{s:4:"name";s:7:"area_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:10;a:4:{s:4:"name";s:12:"is_emergency";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:11;a:4:{s:4:"name";s:13:"license_plate";s:4:"type";s:6:"string";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:12;a:4:{s:4:"name";s:14:"ref_service_id";s:4:"type";s:7:"integer";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:13;a:4:{s:4:"name";s:6:"status";s:4:"type";s:4:"enum";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:14;a:4:{s:4:"name";s:6:"method";s:4:"type";s:4:"enum";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}i:15;a:4:{s:4:"name";s:14:"payment_status";s:4:"type";s:7:"tinyint";s:8:"subquery";s:0:"";s:4:"used";s:1:"1";}}');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_apikey`
+-- Struktur dari tabel `cms_apikey`
 --
 
 CREATE TABLE `cms_apikey` (
@@ -118,7 +119,7 @@ CREATE TABLE `cms_apikey` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_dashboard`
+-- Struktur dari tabel `cms_dashboard`
 --
 
 CREATE TABLE `cms_dashboard` (
@@ -133,7 +134,7 @@ CREATE TABLE `cms_dashboard` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_email_queues`
+-- Struktur dari tabel `cms_email_queues`
 --
 
 CREATE TABLE `cms_email_queues` (
@@ -154,7 +155,7 @@ CREATE TABLE `cms_email_queues` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_email_templates`
+-- Struktur dari tabel `cms_email_templates`
 --
 
 CREATE TABLE `cms_email_templates` (
@@ -172,7 +173,7 @@ CREATE TABLE `cms_email_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cms_email_templates`
+-- Dumping data untuk tabel `cms_email_templates`
 --
 
 INSERT INTO `cms_email_templates` (`id`, `name`, `slug`, `subject`, `content`, `description`, `from_name`, `from_email`, `cc_email`, `created_at`, `updated_at`) VALUES
@@ -181,7 +182,7 @@ INSERT INTO `cms_email_templates` (`id`, `name`, `slug`, `subject`, `content`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_logs`
+-- Struktur dari tabel `cms_logs`
 --
 
 CREATE TABLE `cms_logs` (
@@ -196,7 +197,7 @@ CREATE TABLE `cms_logs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cms_logs`
+-- Dumping data untuk tabel `cms_logs`
 --
 
 INSERT INTO `cms_logs` (`id`, `created_at`, `updated_at`, `ipaddress`, `useragent`, `url`, `description`, `id_cms_users`) VALUES
@@ -215,12 +216,13 @@ INSERT INTO `cms_logs` (`id`, `created_at`, `updated_at`, `ipaddress`, `useragen
 (13, '2017-01-16 00:13:25', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', 'http://localhost:8000/admin/login', 'ihsan.seeking@gmail.com login with IP Address ::1', 2),
 (14, '2017-01-16 08:16:07', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', 'http://localhost:8000/admin/login', 'ihsan.seeking@gmail.com login with IP Address ::1', 2),
 (15, '2017-01-17 04:57:22', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', 'http://localhost:8000/admin/login', 'ihsan.seeking@gmail.com login with IP Address ::1', 2),
-(16, '2017-01-19 05:39:47', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', 'http://localhost:8000/admin/login', 'ihsan.seeking@gmail.com login with IP Address ::1', 2);
+(16, '2017-01-19 05:39:47', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0', 'http://localhost:8000/admin/login', 'ihsan.seeking@gmail.com login with IP Address ::1', 2),
+(17, '2017-02-17 00:55:46', NULL, '::1', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36', 'http://localhost:8080/API/public/admin/login', 'admin@crudbooster.com login with IP Address ::1', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_menus`
+-- Struktur dari tabel `cms_menus`
 --
 
 CREATE TABLE `cms_menus` (
@@ -240,7 +242,7 @@ CREATE TABLE `cms_menus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cms_menus`
+-- Dumping data untuk tabel `cms_menus`
 --
 
 INSERT INTO `cms_menus` (`id`, `name`, `type`, `path`, `color`, `icon`, `parent_id`, `is_active`, `is_dashboard`, `id_cms_privileges`, `sorting`, `created_at`, `updated_at`) VALUES
@@ -290,7 +292,7 @@ INSERT INTO `cms_menus` (`id`, `name`, `type`, `path`, `color`, `icon`, `parent_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_moduls`
+-- Struktur dari tabel `cms_moduls`
 --
 
 CREATE TABLE `cms_moduls` (
@@ -307,7 +309,7 @@ CREATE TABLE `cms_moduls` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cms_moduls`
+-- Dumping data untuk tabel `cms_moduls`
 --
 
 INSERT INTO `cms_moduls` (`id`, `created_at`, `updated_at`, `name`, `icon`, `path`, `table_name`, `controller`, `is_protected`, `is_active`) VALUES
@@ -340,7 +342,7 @@ INSERT INTO `cms_moduls` (`id`, `created_at`, `updated_at`, `name`, `icon`, `pat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_notifications`
+-- Struktur dari tabel `cms_notifications`
 --
 
 CREATE TABLE `cms_notifications` (
@@ -356,7 +358,7 @@ CREATE TABLE `cms_notifications` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_privileges`
+-- Struktur dari tabel `cms_privileges`
 --
 
 CREATE TABLE `cms_privileges` (
@@ -369,7 +371,7 @@ CREATE TABLE `cms_privileges` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cms_privileges`
+-- Dumping data untuk tabel `cms_privileges`
 --
 
 INSERT INTO `cms_privileges` (`id`, `created_at`, `updated_at`, `name`, `is_superadmin`, `theme_color`) VALUES
@@ -378,7 +380,7 @@ INSERT INTO `cms_privileges` (`id`, `created_at`, `updated_at`, `name`, `is_supe
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_privileges_roles`
+-- Struktur dari tabel `cms_privileges_roles`
 --
 
 CREATE TABLE `cms_privileges_roles` (
@@ -395,7 +397,7 @@ CREATE TABLE `cms_privileges_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cms_privileges_roles`
+-- Dumping data untuk tabel `cms_privileges_roles`
 --
 
 INSERT INTO `cms_privileges_roles` (`id`, `created_at`, `updated_at`, `is_visible`, `is_create`, `is_read`, `is_edit`, `is_delete`, `id_cms_privileges`, `id_cms_moduls`) VALUES
@@ -430,7 +432,7 @@ INSERT INTO `cms_privileges_roles` (`id`, `created_at`, `updated_at`, `is_visibl
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_settings`
+-- Struktur dari tabel `cms_settings`
 --
 
 CREATE TABLE `cms_settings` (
@@ -447,7 +449,7 @@ CREATE TABLE `cms_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cms_settings`
+-- Dumping data untuk tabel `cms_settings`
 --
 
 INSERT INTO `cms_settings` (`id`, `created_at`, `updated_at`, `name`, `content`, `content_input_type`, `dataenum`, `helper`, `group_setting`, `label`) VALUES
@@ -471,7 +473,7 @@ INSERT INTO `cms_settings` (`id`, `created_at`, `updated_at`, `name`, `content`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_statistics`
+-- Struktur dari tabel `cms_statistics`
 --
 
 CREATE TABLE `cms_statistics` (
@@ -485,7 +487,7 @@ CREATE TABLE `cms_statistics` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_statistic_components`
+-- Struktur dari tabel `cms_statistic_components`
 --
 
 CREATE TABLE `cms_statistic_components` (
@@ -504,7 +506,7 @@ CREATE TABLE `cms_statistic_components` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cms_users`
+-- Struktur dari tabel `cms_users`
 --
 
 CREATE TABLE `cms_users` (
@@ -520,7 +522,7 @@ CREATE TABLE `cms_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cms_users`
+-- Dumping data untuk tabel `cms_users`
 --
 
 INSERT INTO `cms_users` (`id`, `created_at`, `updated_at`, `name`, `photo`, `email`, `password`, `id_cms_privileges`, `status`) VALUES
@@ -530,7 +532,7 @@ INSERT INTO `cms_users` (`id`, `created_at`, `updated_at`, `name`, `photo`, `ema
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
+-- Struktur dari tabel `customer`
 --
 
 CREATE TABLE `customer` (
@@ -547,7 +549,7 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `customer`
+-- Dumping data untuk tabel `customer`
 --
 
 INSERT INTO `customer` (`id`, `name`, `email`, `cellphone`, `address`, `ref_occupation_id`, `latitude`, `longitude`, `ref_area_id`, `user_id`) VALUES
@@ -557,7 +559,7 @@ INSERT INTO `customer` (`id`, `name`, `email`, `cellphone`, `address`, `ref_occu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee`
+-- Struktur dari tabel `employee`
 --
 
 CREATE TABLE `employee` (
@@ -576,7 +578,7 @@ CREATE TABLE `employee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `employee`
+-- Dumping data untuk tabel `employee`
 --
 
 INSERT INTO `employee` (`id`, `bengkel_id`, `first_name`, `last_name`, `nik`, `cellphone`, `email`, `address`, `ref_area_id`, `ref_service_type_id`, `image_id`, `note`) VALUES
@@ -585,7 +587,7 @@ INSERT INTO `employee` (`id`, `bengkel_id`, `first_name`, `last_name`, `nik`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee_service`
+-- Struktur dari tabel `employee_service`
 --
 
 CREATE TABLE `employee_service` (
@@ -594,7 +596,7 @@ CREATE TABLE `employee_service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `employee_service`
+-- Dumping data untuk tabel `employee_service`
 --
 
 INSERT INTO `employee_service` (`id`, `ref_service_type_id`) VALUES
@@ -605,7 +607,7 @@ INSERT INTO `employee_service` (`id`, `ref_service_type_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log`
+-- Struktur dari tabel `log`
 --
 
 CREATE TABLE `log` (
@@ -619,7 +621,7 @@ CREATE TABLE `log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `log`
+-- Dumping data untuk tabel `log`
 --
 
 INSERT INTO `log` (`id`, `user_id`, `ip_address`, `access_type`, `date`, `start`, `finish`) VALUES
@@ -630,7 +632,7 @@ INSERT INTO `log` (`id`, `user_id`, `ip_address`, `access_type`, `date`, `start`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -640,7 +642,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -672,7 +674,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Struktur dari tabel `order`
 --
 
 CREATE TABLE `order` (
@@ -695,17 +697,146 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `order`
+-- Dumping data untuk tabel `order`
 --
 
 INSERT INTO `order` (`id`, `customer_id`, `order_date`, `order_time`, `service_date`, `service_time`, `service_location`, `latitude`, `longitude`, `area_id`, `is_emergency`, `license_plate`, `ref_service_id`, `status`, `method`, `payment_status`) VALUES
 (1, 1, '0000-00-00', '13:14:00', '0000-00-00', '14:00:00', 'Jl. Malioboro No. 52', '-7.7931221', '110.3660614', 47619, '0', 'AB100CA', 5, '2', '3', 1),
-(2, 1, NULL, NULL, NULL, NULL, 'Jl. Malioboro No. 52', '-7.7931221', '110.3660614', 47619, '0', 'AB100CA', 5, '1', '3', NULL);
+(2, 1, NULL, NULL, NULL, NULL, 'Jl. Malioboro No. 52', '-7.7931221', '110.3660614', 47619, '0', 'AB100CA', 5, '1', '3', NULL),
+(3, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(4, 1, '2017-02-17', '15:01:26', '2003-02-01', '00:00:00', 'Place: -7.791847500000011,110.36580078124999 \nAlamat: Jl. Sosrowijayan No.13, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271, Indonesia \n', '-7.791847500000011', '110.36580078124999', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(5, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(6, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(7, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(8, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(9, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(10, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(11, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(12, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(13, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(14, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(15, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(16, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(17, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(18, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(19, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(20, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(21, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(22, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(23, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(24, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(25, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(26, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(27, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(28, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(29, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(30, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(31, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(32, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(33, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(34, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(35, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(36, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(37, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(38, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(39, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(40, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(41, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(42, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(43, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(44, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(45, 1, '2017-02-17', '17:32:52', '2003-02-01', '00:00:00', 'Place: -7.791192635281013,110.36597365513444 \nAlamat: null \n', '-7.791192635281013', '110.36597365513444', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(46, 1, '2017-02-17', '17:33:42', '2003-02-01', '00:00:00', 'Place: -7.7914974999999975,110.36593359374999 \nAlamat: Jl. Malioboro No.56, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271, Indonesia \n', '-7.7914974999999975', '110.36593359374999', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(47, 1, '2017-02-17', '17:33:45', '2003-02-01', '00:00:00', 'Place: -7.7914974999999975,110.36593359374999 \nAlamat: Jl. Malioboro No.56, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271, Indonesia \n', '-7.7914974999999975', '110.36593359374999', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(48, 1, '2017-02-17', '17:33:47', '2003-02-01', '00:00:00', 'Place: -7.7914974999999975,110.36593359374999 \nAlamat: Jl. Malioboro No.56, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271, Indonesia \n', '-7.7914974999999975', '110.36593359374999', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(49, 1, '2017-02-17', '17:33:49', '2003-02-01', '00:00:00', 'Place: -7.7914974999999975,110.36593359374999 \nAlamat: Jl. Malioboro No.56, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271, Indonesia \n', '-7.7914974999999975', '110.36593359374999', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(50, 1, '2017-02-17', '17:34:48', '2003-02-01', '00:00:00', 'Place: -7.7914974999999975,110.36593359374999 \nAlamat: Jl. Malioboro No.56, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271, Indonesia \n', '-7.7914974999999975', '110.36593359374999', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(51, 1, '2017-02-17', '17:37:31', '2003-02-01', '00:00:00', 'Place: -7.791547500000014,110.36590234374998 \nAlamat: Jl. Malioboro No.149, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271, Indonesia \n', '-7.791547500000014', '110.36590234374998', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(52, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(53, 1, '2017-02-17', '17:40:57', '2003-02-01', '00:00:00', 'Place: -7.791547500000014,110.36590234374998 \nAlamat: Jl. Malioboro No.149, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271, Indonesia \n', '-7.791547500000014', '110.36590234374998', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(54, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(55, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(56, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(57, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(58, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(59, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(60, 1, '2017-02-17', '18:00:28', '2003-02-01', '00:00:00', 'Place: -7.791087500000011,110.36602734374996 \nAlamat: Jl. Malioboro No.60, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271, Indonesia \n', '-7.791087500000011', '110.36602734374996', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(61, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(62, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(63, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(64, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(65, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(66, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(67, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(68, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(69, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(70, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(71, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(72, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(73, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(74, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(75, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(76, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(77, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(78, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(79, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(80, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(81, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(82, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(83, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(84, 1, '2017-02-17', '18:29:00', '2003-02-01', '00:00:00', 'Place: -7.7878874999999885,110.37296484375 \nAlamat: Jl. Abu Bakar Ali No.3, Kotabaru, Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224, Indonesia \n', '-7.7878874999999885', '110.37296484375', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(85, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(86, 1, '2017-02-17', '18:30:53', '2003-02-01', '00:00:00', 'Place: -7.791032500000007,110.36595703125002 \nAlamat: Jl. Malioboro No.161, 001, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271, Indonesia \n', '-7.791032500000007', '110.36595703125002', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(87, 2, '2017-02-17', '18:31:14', '2003-02-01', '00:00:00', '123456', '123456', '123456', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(88, 2, '2017-02-17', '18:31:18', '2003-02-01', '00:00:00', '123456', '123456', '123456', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(89, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(90, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(91, 1, '2017-02-17', '18:34:16', '2003-02-01', '00:00:00', 'Place: -7.787952499999996,110.37298828125003 \nAlamat: Jl. Abu Bakar Ali No.22, Kotabaru, Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224, Indonesia \n', '-7.787952499999996', '110.37298828125003', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(92, 2, '2017-02-17', '18:34:56', '2003-02-01', '00:00:00', '123456', '123456', '123456', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(93, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(94, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(95, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(96, 1, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(97, 1, '2017-02-20', '17:49:09', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(98, 1, '2017-02-20', '17:51:14', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(99, 1, '2017-02-20', '17:51:39', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(100, 1, '2017-02-20', '17:53:28', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(101, 1, '2017-02-20', '17:56:26', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(102, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(103, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(104, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(105, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(106, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(107, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(108, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(109, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(110, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(111, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(112, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(113, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(114, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(115, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(116, 1, '2017-02-20', '18:02:10', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(117, 1, '2017-02-20', '18:02:54', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(118, 1, '2017-02-20', '18:03:42', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(119, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(120, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(121, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(122, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(123, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(124, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(125, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(126, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(127, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(128, 2, '2016-06-06', '11:11:11', '2016-06-06', '11:11:11', 'jalan malboro', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(129, 1, '2017-02-20', '18:43:48', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(130, 1, '2017-02-20', '18:46:23', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1),
+(131, 1, '2017-02-20', '18:47:28', '2003-02-01', '00:00:00', 'Alamat belum dipilih', '6', '6', 14, 'false', 'AB100CA', 1, '1', '3', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Struktur dari tabel `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -717,7 +848,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payment`
+-- Struktur dari tabel `payment`
 --
 
 CREATE TABLE `payment` (
@@ -734,7 +865,7 @@ CREATE TABLE `payment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `payment`
+-- Dumping data untuk tabel `payment`
 --
 
 INSERT INTO `payment` (`id`, `date`, `time`, `payment_date`, `payment_time`, `order_id`, `receipt_id`, `status`, `payment_account`, `payment_account_name`) VALUES
@@ -743,7 +874,7 @@ INSERT INTO `payment` (`id`, `date`, `time`, `payment_date`, `payment_time`, `or
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_area`
+-- Struktur dari tabel `ref_area`
 --
 
 CREATE TABLE `ref_area` (
@@ -755,7 +886,7 @@ CREATE TABLE `ref_area` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_area`
+-- Dumping data untuk tabel `ref_area`
 --
 
 INSERT INTO `ref_area` (`id`, `name`, `parent_id`, `lingkup_wilayah`, `kode_mendagri`) VALUES
@@ -1285,7 +1416,7 @@ INSERT INTO `ref_area` (`id`, `name`, `parent_id`, `lingkup_wilayah`, `kode_mend
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_bengkel_type`
+-- Struktur dari tabel `ref_bengkel_type`
 --
 
 CREATE TABLE `ref_bengkel_type` (
@@ -1296,7 +1427,7 @@ CREATE TABLE `ref_bengkel_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_bengkel_type`
+-- Dumping data untuk tabel `ref_bengkel_type`
 --
 
 INSERT INTO `ref_bengkel_type` (`id`, `name`, `wheel`, `size`) VALUES
@@ -1307,7 +1438,7 @@ INSERT INTO `ref_bengkel_type` (`id`, `name`, `wheel`, `size`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_brand`
+-- Struktur dari tabel `ref_brand`
 --
 
 CREATE TABLE `ref_brand` (
@@ -1317,7 +1448,7 @@ CREATE TABLE `ref_brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_brand`
+-- Dumping data untuk tabel `ref_brand`
 --
 
 INSERT INTO `ref_brand` (`id`, `name`, `wheel`) VALUES
@@ -1364,7 +1495,7 @@ INSERT INTO `ref_brand` (`id`, `name`, `wheel`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_occupation`
+-- Struktur dari tabel `ref_occupation`
 --
 
 CREATE TABLE `ref_occupation` (
@@ -1373,7 +1504,7 @@ CREATE TABLE `ref_occupation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_occupation`
+-- Dumping data untuk tabel `ref_occupation`
 --
 
 INSERT INTO `ref_occupation` (`id`, `name`) VALUES
@@ -1394,7 +1525,7 @@ INSERT INTO `ref_occupation` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_service_type`
+-- Struktur dari tabel `ref_service_type`
 --
 
 CREATE TABLE `ref_service_type` (
@@ -1407,7 +1538,7 @@ CREATE TABLE `ref_service_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_service_type`
+-- Dumping data untuk tabel `ref_service_type`
 --
 
 INSERT INTO `ref_service_type` (`id`, `wheel`, `name`, `description`, `category`, `note`) VALUES
@@ -1420,7 +1551,7 @@ INSERT INTO `ref_service_type` (`id`, `wheel`, `name`, `description`, `category`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_spare_part`
+-- Struktur dari tabel `ref_spare_part`
 --
 
 CREATE TABLE `ref_spare_part` (
@@ -1433,7 +1564,7 @@ CREATE TABLE `ref_spare_part` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_spare_part`
+-- Dumping data untuk tabel `ref_spare_part`
 --
 
 INSERT INTO `ref_spare_part` (`id`, `name`, `brand`, `tipe`, `ref_part_id`, `note`) VALUES
@@ -1442,7 +1573,7 @@ INSERT INTO `ref_spare_part` (`id`, `name`, `brand`, `tipe`, `ref_part_id`, `not
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_user_group`
+-- Struktur dari tabel `ref_user_group`
 --
 
 CREATE TABLE `ref_user_group` (
@@ -1452,7 +1583,7 @@ CREATE TABLE `ref_user_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_user_group`
+-- Dumping data untuk tabel `ref_user_group`
 --
 
 INSERT INTO `ref_user_group` (`id`, `name`, `description`) VALUES
@@ -1465,7 +1596,7 @@ INSERT INTO `ref_user_group` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ref_vehicle_type`
+-- Struktur dari tabel `ref_vehicle_type`
 --
 
 CREATE TABLE `ref_vehicle_type` (
@@ -1479,7 +1610,7 @@ CREATE TABLE `ref_vehicle_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ref_vehicle_type`
+-- Dumping data untuk tabel `ref_vehicle_type`
 --
 
 INSERT INTO `ref_vehicle_type` (`id`, `wheel`, `ref_brand_id`, `type`, `year`, `transmission`, `note`) VALUES
@@ -1491,7 +1622,7 @@ INSERT INTO `ref_vehicle_type` (`id`, `wheel`, `ref_brand_id`, `type`, `year`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `service`
+-- Struktur dari tabel `service`
 --
 
 CREATE TABLE `service` (
@@ -1505,7 +1636,7 @@ CREATE TABLE `service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `service`
+-- Dumping data untuk tabel `service`
 --
 
 INSERT INTO `service` (`id`, `bengkel_id`, `ref_service_id`, `price`, `duration_min`, `duration_max`, `note`) VALUES
@@ -1514,7 +1645,7 @@ INSERT INTO `service` (`id`, `bengkel_id`, `ref_service_id`, `price`, `duration_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `spare_part`
+-- Struktur dari tabel `spare_part`
 --
 
 CREATE TABLE `spare_part` (
@@ -1526,7 +1657,7 @@ CREATE TABLE `spare_part` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `spare_part`
+-- Dumping data untuk tabel `spare_part`
 --
 
 INSERT INTO `spare_part` (`id`, `bengkel_id`, `ref_spare_part_id`, `avaibility`, `price`) VALUES
@@ -1535,7 +1666,7 @@ INSERT INTO `spare_part` (`id`, `bengkel_id`, `ref_spare_part_id`, `avaibility`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction`
+-- Struktur dari tabel `transaction`
 --
 
 CREATE TABLE `transaction` (
@@ -1551,7 +1682,7 @@ CREATE TABLE `transaction` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `transaction`
+-- Dumping data untuk tabel `transaction`
 --
 
 INSERT INTO `transaction` (`id`, `bengkel_id`, `type`, `payment_id`, `date`, `time`, `nominal`, `method`, `user_id`) VALUES
@@ -1560,7 +1691,7 @@ INSERT INTO `transaction` (`id`, `bengkel_id`, `type`, `payment_id`, `date`, `ti
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -1579,7 +1710,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `ref_user_group_id`, `first_name`, `last_name`, `username`, `password`, `email`, `cellphone`, `address`, `ref_area_id`, `facebook_id`, `twitter_id`) VALUES
@@ -1590,7 +1721,7 @@ INSERT INTO `user` (`id`, `ref_user_group_id`, `first_name`, `last_name`, `usern
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -1606,7 +1737,7 @@ CREATE TABLE `users` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vehicle`
+-- Struktur dari tabel `vehicle`
 --
 
 CREATE TABLE `vehicle` (
@@ -1617,7 +1748,7 @@ CREATE TABLE `vehicle` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `vehicle`
+-- Dumping data untuk tabel `vehicle`
 --
 
 INSERT INTO `vehicle` (`license_plate`, `user_id`, `ref_vehicle_type_id`, `note`) VALUES
@@ -1626,7 +1757,7 @@ INSERT INTO `vehicle` (`license_plate`, `user_id`, `ref_vehicle_type_id`, `note`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `work`
+-- Struktur dari tabel `work`
 --
 
 CREATE TABLE `work` (
@@ -1644,7 +1775,7 @@ CREATE TABLE `work` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `work`
+-- Dumping data untuk tabel `work`
 --
 
 INSERT INTO `work` (`id`, `order_id`, `bengkel_id`, `employee_id`, `work_start`, `work_finish`, `is_satisfied`, `rating`, `review`, `note`, `image_id`) VALUES
@@ -1938,7 +2069,7 @@ ALTER TABLE `bengkel`
 -- AUTO_INCREMENT for table `cms_apicustom`
 --
 ALTER TABLE `cms_apicustom`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `cms_apikey`
 --
@@ -1963,7 +2094,7 @@ ALTER TABLE `cms_email_templates`
 -- AUTO_INCREMENT for table `cms_logs`
 --
 ALTER TABLE `cms_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `cms_menus`
 --
@@ -2033,7 +2164,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 --
 -- AUTO_INCREMENT for table `payment`
 --
@@ -2105,11 +2236,11 @@ ALTER TABLE `users`
 ALTER TABLE `work`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `bengkel`
+-- Ketidakleluasaan untuk tabel `bengkel`
 --
 ALTER TABLE `bengkel`
   ADD CONSTRAINT `bengkel_ibfk_1` FOREIGN KEY (`ref_bengkel_type_id`) REFERENCES `ref_bengkel_type` (`id`),
@@ -2119,7 +2250,7 @@ ALTER TABLE `bengkel`
   ADD CONSTRAINT `bengkel_ibfk_5` FOREIGN KEY (`owner_id`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `customer`
+-- Ketidakleluasaan untuk tabel `customer`
 --
 ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`ref_occupation_id`) REFERENCES `ref_occupation` (`id`),
@@ -2127,7 +2258,7 @@ ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `employee`
+-- Ketidakleluasaan untuk tabel `employee`
 --
 ALTER TABLE `employee`
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`bengkel_id`) REFERENCES `bengkel` (`id`),
@@ -2135,20 +2266,20 @@ ALTER TABLE `employee`
   ADD CONSTRAINT `employee_ibfk_3` FOREIGN KEY (`ref_service_type_id`) REFERENCES `ref_service_type` (`id`);
 
 --
--- Constraints for table `employee_service`
+-- Ketidakleluasaan untuk tabel `employee_service`
 --
 ALTER TABLE `employee_service`
   ADD CONSTRAINT `employee_service_ibfk_1` FOREIGN KEY (`id`) REFERENCES `employee` (`id`),
   ADD CONSTRAINT `employee_service_ibfk_2` FOREIGN KEY (`ref_service_type_id`) REFERENCES `ref_service_type` (`id`);
 
 --
--- Constraints for table `log`
+-- Ketidakleluasaan untuk tabel `log`
 --
 ALTER TABLE `log`
   ADD CONSTRAINT `log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `order`
+-- Ketidakleluasaan untuk tabel `order`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
@@ -2157,39 +2288,39 @@ ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_4` FOREIGN KEY (`ref_service_id`) REFERENCES `ref_service_type` (`id`);
 
 --
--- Constraints for table `payment`
+-- Ketidakleluasaan untuk tabel `payment`
 --
 ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`);
 
 --
--- Constraints for table `ref_area`
+-- Ketidakleluasaan untuk tabel `ref_area`
 --
 ALTER TABLE `ref_area`
   ADD CONSTRAINT `ref_area_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `ref_area` (`id`);
 
 --
--- Constraints for table `ref_vehicle_type`
+-- Ketidakleluasaan untuk tabel `ref_vehicle_type`
 --
 ALTER TABLE `ref_vehicle_type`
   ADD CONSTRAINT `ref_vehicle_type_ibfk_1` FOREIGN KEY (`ref_brand_id`) REFERENCES `ref_brand` (`id`);
 
 --
--- Constraints for table `service`
+-- Ketidakleluasaan untuk tabel `service`
 --
 ALTER TABLE `service`
   ADD CONSTRAINT `service_ibfk_1` FOREIGN KEY (`bengkel_id`) REFERENCES `bengkel` (`id`),
   ADD CONSTRAINT `service_ibfk_2` FOREIGN KEY (`ref_service_id`) REFERENCES `ref_service_type` (`id`);
 
 --
--- Constraints for table `spare_part`
+-- Ketidakleluasaan untuk tabel `spare_part`
 --
 ALTER TABLE `spare_part`
   ADD CONSTRAINT `spare_part_ibfk_1` FOREIGN KEY (`bengkel_id`) REFERENCES `bengkel` (`id`),
   ADD CONSTRAINT `spare_part_ibfk_2` FOREIGN KEY (`ref_spare_part_id`) REFERENCES `ref_spare_part` (`id`);
 
 --
--- Constraints for table `transaction`
+-- Ketidakleluasaan untuk tabel `transaction`
 --
 ALTER TABLE `transaction`
   ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`bengkel_id`) REFERENCES `bengkel` (`id`),
@@ -2197,21 +2328,21 @@ ALTER TABLE `transaction`
   ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `user`
+-- Ketidakleluasaan untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`ref_user_group_id`) REFERENCES `ref_user_group` (`id`),
   ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`ref_area_id`) REFERENCES `ref_area` (`id`);
 
 --
--- Constraints for table `vehicle`
+-- Ketidakleluasaan untuk tabel `vehicle`
 --
 ALTER TABLE `vehicle`
   ADD CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `vehicle_ibfk_2` FOREIGN KEY (`ref_vehicle_type_id`) REFERENCES `ref_vehicle_type` (`id`);
 
 --
--- Constraints for table `work`
+-- Ketidakleluasaan untuk tabel `work`
 --
 ALTER TABLE `work`
   ADD CONSTRAINT `work_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
