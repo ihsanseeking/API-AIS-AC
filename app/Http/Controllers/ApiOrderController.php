@@ -32,6 +32,8 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$res['data']['nama'] = "Sukiyem";
 				$res['data']['total'] = "540000";
 				$res['data']['lama_perjalanan'] = "2";
+				$res['data']['lat'] = $postdata['latitude'];
+				$res['data']['lon'] = $postdata['longitude'];
 				// echo "customer id ".$postdata['customer_id'];
 				if ($postdata['customer_id'] == 2){
 					//echo "dikirim ke e91yJPQy31A:APA91bETqSZrcWT2c1NB__xY8_cLWS0tAyIfPxH8IUg-jKT7u8L6HhdQyUJ1k1Iy8eRrPFnutsEmyvUDS2MaTv6LK0uN4yLXeIWDxye7bD8vhdL7I2jEj3Q_clbbMGd9swiflCq6kNy8";
