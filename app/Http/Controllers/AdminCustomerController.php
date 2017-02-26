@@ -39,18 +39,19 @@
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
-		$this->form = array();
-		$this->form[] = array("label"=>"Name","name"=>"name","type"=>"text","required"=>TRUE,"validation"=>"required|string|min:3|max:70","placeholder"=>"You can only enter the letter only");
-		$this->form[] = array("label"=>"Email","name"=>"email","type"=>"email","required"=>TRUE,"validation"=>"required|min:3|max:255|email|unique:customer","placeholder"=>"Please enter a valid email address");
-		$this->form[] = array("label"=>"Cellphone","name"=>"cellphone","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
-		$this->form[] = array("label"=>"Address","name"=>"address","type"=>"textarea","required"=>TRUE,"validation"=>"required|string|min:5|max:5000");
-		$this->form[] = array("label"=>"Ref Occupation Id","name"=>"ref_occupation_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"ref_occupation,name");
-		$this->form[] = array("label"=>"Latitude","name"=>"latitude","type"=>"hidden","required"=>TRUE,"validation"=>"required|min:3|max:255");
-		$this->form[] = array("label"=>"Longitude","name"=>"longitude","type"=>"hidden","required"=>TRUE,"validation"=>"required|min:3|max:255");
-		$this->form[] = array("label"=>"Ref Area Id","name"=>"ref_area_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"ref_area,name");
-		$this->form[] = array("label"=>"User Id","name"=>"user_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"user,first_name");
-
-			# END FORM DO NOT REMOVE THIS LINE     
+			$this->form = [];
+			$this->form[] = ["label"=>"Name","name"=>"name","type"=>"text","validation"=>"required|string|min:3|max:70","width"=>"col-sm-10","placeholder"=>"You can only enter the letter only"];
+			$this->form[] = ["label"=>"Email","name"=>"email","type"=>"email","validation"=>"required|min:3|max:255|email|unique:customer","width"=>"col-sm-10","placeholder"=>"Please enter a valid email address"];
+			$this->form[] = ["label"=>"Cellphone","name"=>"cellphone","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Address","name"=>"address","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Ref Occupation Id","name"=>"ref_occupation_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_occupation,name"];
+			$this->form[] = ["label"=>"Latitude","name"=>"latitude","type"=>"hidden","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Longitude","name"=>"longitude","type"=>"hidden","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Ref Area Id","name"=>"ref_area_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_area,name"];
+			$this->form[] = ["label"=>"User Id","name"=>"user_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"user,first_name"];
+			$this->form[] = ["label"=>"Device Id","name"=>"device_id","type"=>"select2","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10","datatable"=>"device,id"];
+			$this->form[] = ["label"=>"Uid","name"=>"uid","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
+			# END FORM DO NOT REMOVE THIS LINE
 
 			/* 
 	        | ---------------------------------------------------------------------- 

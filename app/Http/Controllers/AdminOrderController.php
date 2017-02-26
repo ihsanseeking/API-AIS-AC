@@ -8,7 +8,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 	class AdminOrderController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 		public function postNotif(){
-			
+
 		}
 	    public function __construct() {
 

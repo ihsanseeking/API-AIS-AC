@@ -5,6 +5,7 @@
 		use DB;
 		use CRUDBooster;
 		use Curl;
+		//use Illuminate\Support\Facades\DB;
 define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxHxlv1ZZcq3NkraLMlZNZLo0sxwirEipUOrfwNrb5iLCfEpM-WD1yhuA6-WzsG8saqpVr125dHndOcJm6EPuwV7QmsEB5wiyvu2Ohf');
 		class ApiOrderController extends \crocodicstudio\crudbooster\controllers\ApiController {
 
@@ -86,7 +87,15 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				if ($result === FALSE) {
 					die('Curl failed: ' . curl_error($ch));
 				}
-				//echo $result;
+				// if ()
+				// $batasUtara = floatval($postdata['latitude']) +  0.04521198;
+				// $batasTimur = floatval($postdata['longitude']) +  0.04521198;
+				//
+				// $bengkels = DB::table('bengkel')->get();
+				// ->where('status', '<>', 1)
+				// $res['data']['lat'] = $postdata['latitude'];
+				// $res['data']['lon'] = $postdata['longitude'];
+				// echo $bengkels;
 
 		    }
 
