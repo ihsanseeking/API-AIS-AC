@@ -85,7 +85,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 	        */
 
 	        $this->addaction = array();
-			$this->addaction[] = ['label'=>'Set Paid','icon'=>'fa fa-money','color'=>'warning','url'=>postNotif()];
+			// $this->addaction[] = ['label'=>'Set Paid','icon'=>'fa fa-money','color'=>'warning','url'=>postNotif()];
 
 	        /*
 	        | ----------------------------------------------------------------------

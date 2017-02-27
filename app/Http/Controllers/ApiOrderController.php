@@ -87,15 +87,15 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				if ($result === FALSE) {
 					die('Curl failed: ' . curl_error($ch));
 				}
-				// if ()
-				// $batasUtara = floatval($postdata['latitude']) +  0.04521198;
-				// $batasTimur = floatval($postdata['longitude']) +  0.04521198;
-				//
-				// $bengkels = DB::table('bengkel')->get();
-				// ->where('status', '<>', 1)
-				// $res['data']['lat'] = $postdata['latitude'];
-				// $res['data']['lon'] = $postdata['longitude'];
-				// echo $bengkels;
+				if ()
+				$batasUtara = floatval($postdata['latitude']) +  0.04521198;
+				$batasTimur = floatval($postdata['longitude']) +  0.04521198;
+
+				$bengkels = DB::table('bengkel')->where('cast(b)', '<>', 1)->get();
+				DB::table('texts')->whereRaw("cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + 0.04521198) and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - 0.04521198) and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + 0.04521198) and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - 0.04521198)")->get();
+				$res['data']['lat'] = $postdata['latitude'];
+				$res['data']['lon'] = $postdata['longitude'];
+				echo $bengkels;
 
 		    }
 
