@@ -95,22 +95,30 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				DB::table('texts')->whereRaw("cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + 0.04521198) and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - 0.04521198) and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + 0.04521198) and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - 0.04521198)")->get();
 				$res['data']['lat'] = $postdata['latitude'];
 				$res['data']['lon'] = $postdata['longitude'];
+				$distanceShort = 0;
 				foreach ($bengkels as $key => $bengkel) {
 					# code...
 					echo $bengkel->latitude;
-					// $latFrom = deg2rad($postdata['latitude']);
-					//   $lonFrom = deg2rad($postdata['longitude']);
-					//   $latTo = deg2rad($bengkel->latitude);
-					//   $lonTo = deg2rad($bengkel->longitude);
-					//
-					//   $latDelta = $latTo - $latFrom;
-					//   $lonDelta = $lonTo - $lonFrom;
-					//
-					//   $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
-					//     cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
-					//   return $angle * $earthRadius;
+					$latFrom = deg2rad($postdata['latitude']);
+					  $lonFrom = deg2rad($postdata['longitude']);
+					  $latTo = deg2rad($bengkel->latitude);
+					  $lonTo = deg2rad($bengkel->longitude);
+
+					  $latDelta = $latTo - $latFrom;
+					  $lonDelta = $lonTo - $lonFrom;
+
+					  $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+					    cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+					  $distance =  $angle * $earthRadius;
+					  if ($key == 0) {
+						  $distanceShort = $distance;
+					  } else {
+						  if ($distance < $distanceShort){
+							  $distanceShort = $distance;
+						  }
+					  }
 				}
-				//echo $bengkels;
+				echo 'jarak terdekat '. $distanceShort;
 
 		    }
 
