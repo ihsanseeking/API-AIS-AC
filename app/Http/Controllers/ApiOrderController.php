@@ -106,6 +106,9 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$customer = DB::table('customer')->where('id', '=', $postdata['customer_id'])->get();
 				$res['data']['customer'] = $customer;
 
+				$service = DB::table('customer')->where('id', '=', $postdata['idservice'])->get();
+				$res['data']['service'] = $customer;
+
 				$fields = array(
 					'to' => $uidBengkel{0}->deviceid,
 					'data' => $res,
