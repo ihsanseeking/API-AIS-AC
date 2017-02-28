@@ -32,7 +32,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$res['data']['timestamp'] = date('Y-m-d G:i:s');
 				$res['data']['nama'] = "Sukiyem";
 				$res['data']['total'] = "540000";
-				$res['data']['lama_perjalanan'] = "2";
+				$res['data']['address'] = $postdata['service_location'];
 				$res['data']['lat'] = $postdata['latitude'];
 				$res['data']['lon'] = $postdata['longitude'];
 
@@ -40,7 +40,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$res['data']['carType'] = $postdata['car_manufacture_type'];
 				$res['data']['carYear'] = $postdata['car_year'];
 				// echo "customer id ".$postdata['customer_id'];
-				
+
 
 
 				//
