@@ -111,10 +111,10 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				//echo 'jarak terdekat '. $distanceShort;
 
 				$uidBengkel = DB::table('customer')->where('id', '=', $idCustomerBengkel)->get();
-				echo 'uid '.$uidBengkel{0}->uid;
+				echo 'uid '.$uidBengkel{0}->deviceid;
 
 				$fields = array(
-					'to' => 'cArk3X4bywg:APA91bEAeP6RfwIKDity9F2qd-4WaPu56f3wUEm3NiAomCeuQVqquiR5YKmN8Zs_gUjISrLPGDDa3Qtmb_jyShrFrjkHOSTQwi64526h1qHmVDI0Ri_P3BLH1OJcZqTUnlM81xpkHkQ9' ,
+					'to' => $uidBengkel{0}->deviceid,
 					'data' => $res,
 				);
 				$ch = curl_init();
