@@ -50,10 +50,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 					// 	'data' => $res,
 					// );
 				}
-				$fields = array(
-					'to' => '/topics/global' ,
-					'data' => $res,
-				);
+
 
 				//
 				// $url = $curl->buildUrl('https://fcm.googleapis.com/fcm/send', ['s' => 'curl']);
@@ -68,6 +65,57 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$headers = array(
 					'Authorization: key=' . FIREBASE_API_KEY,
 					'Content-Type: application/json'
+				);
+
+
+				$batasUtara = floatval($postdata['latitude']) +  0.04521198;
+				$batasTimur = floatval($postdata['longitude']) +  0.04521198;
+
+				$bengkels =
+				DB::table('bengkel')->whereRaw("cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + 0.04521198) and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - 0.04521198) and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + 0.04521198) and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - 0.04521198)")->get();
+				$res['data']['lat'] = $postdata['latitude'];
+				$res['data']['lon'] = $postdata['longitude'];
+				$distanceShort = 0;
+				$idCustomerBengkel=0;
+				$bengkelShort = 0;
+				foreach ($bengkels as $key => $bengkel) {
+					# code...
+					//echo $bengkel->latitude;
+					$latFrom = deg2rad($postdata['latitude']);
+					  $lonFrom = deg2rad($postdata['longitude']);
+					  $latTo = deg2rad($bengkel->latitude);
+					  $lonTo = deg2rad($bengkel->longitude);
+
+					  $latDelta = $latTo - $latFrom;
+					  $lonDelta = $lonTo - $lonFrom;
+
+					  $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+					    cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+					  $distance =  $angle * $earthRadius;
+
+					  if ($key == 0) {
+						  $distanceShort = $distance;
+						  $res['data']['latBengkel'] = $bengkel->latitude;
+		  				  $res['data']['lonBengkel'] = $bengkel->longitude;
+						  $idCustomerBengkel = $bengkel->owner_id;
+						  $bengkelShort = $bengkel;
+					  } else {
+						  if ($distance < $distanceShort){
+							  $distanceShort = $distance;
+							  $res['data']['latBengkel'] = $bengkel->latitude;
+			  				  $res['data']['lonBengkel'] = $bengkel->longitude;
+							  $idCustomerBengkel = $bengkel->owner_id;
+						  }
+					  }
+				}
+				//echo 'jarak terdekat '. $distanceShort;
+
+				$uidBengkel = DB::table('customer')->where('id', '=', $idCustomerBengkel)->get();
+				echo 'uid '.$uidBengkel{0}->uid;
+
+				$fields = array(
+					'to' => 'cArk3X4bywg:APA91bEAeP6RfwIKDity9F2qd-4WaPu56f3wUEm3NiAomCeuQVqquiR5YKmN8Zs_gUjISrLPGDDa3Qtmb_jyShrFrjkHOSTQwi64526h1qHmVDI0Ri_P3BLH1OJcZqTUnlM81xpkHkQ9' ,
+					'data' => $res,
 				);
 				$ch = curl_init();
 				$url = 'https://fcm.googleapis.com/fcm/send';
@@ -87,38 +135,6 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				if ($result === FALSE) {
 					die('Curl failed: ' . curl_error($ch));
 				}
-				if ()
-				$batasUtara = floatval($postdata['latitude']) +  0.04521198;
-				$batasTimur = floatval($postdata['longitude']) +  0.04521198;
-
-				$bengkels = DB::table('bengkel')->where('cast(b)', '<>', 1)->get();
-				DB::table('texts')->whereRaw("cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + 0.04521198) and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - 0.04521198) and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + 0.04521198) and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - 0.04521198)")->get();
-				$res['data']['lat'] = $postdata['latitude'];
-				$res['data']['lon'] = $postdata['longitude'];
-				$distanceShort = 0;
-				foreach ($bengkels as $key => $bengkel) {
-					# code...
-					echo $bengkel->latitude;
-					$latFrom = deg2rad($postdata['latitude']);
-					  $lonFrom = deg2rad($postdata['longitude']);
-					  $latTo = deg2rad($bengkel->latitude);
-					  $lonTo = deg2rad($bengkel->longitude);
-
-					  $latDelta = $latTo - $latFrom;
-					  $lonDelta = $lonTo - $lonFrom;
-
-					  $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
-					    cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
-					  $distance =  $angle * $earthRadius;
-					  if ($key == 0) {
-						  $distanceShort = $distance;
-					  } else {
-						  if ($distance < $distanceShort){
-							  $distanceShort = $distance;
-						  }
-					  }
-				}
-				echo 'jarak terdekat '. $distanceShort;
 
 		    }
 
