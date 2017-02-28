@@ -47,6 +47,10 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 					'to' => $customer{0}->deviceid,
 					'data' => $res,
 				);
+				$headers = array(
+					'Authorization: key=' . FIREBASE_API_KEY,
+					'Content-Type: application/json'
+				);
 
 				//prosess ngirim notifikasi pake firebase
 				$ch = curl_init();
