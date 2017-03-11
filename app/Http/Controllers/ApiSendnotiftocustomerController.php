@@ -36,7 +36,10 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$res['data']['image'] = 'https://zestblog.files.wordpress.com/2008/03/118.jpg';
 				$res['data']['payload'] = $payload;
 				$res['data']['timestamp'] = date('Y-m-d G:i:s');
-				$res['data']['bengkel'] = $result;
+				
+				
+				$bengkels = DB::table('bengkel')->where('id', '=', $postdata['id'])->get();
+				$res['data']['bengkel'] = $bengkels{0};
 				
 				$service = DB::table('ref_service_type')->where('id', '=', $postdata['service_id'])->get();
 				$res['data']['service'] = $service;
@@ -67,8 +70,8 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
 				//echo json_encode($fields);
 				// Execute post
-				$result = curl_exec($ch);
-				if ($result === FALSE) {
+				$hasil = curl_exec($ch);
+				if ($hasil === FALSE) {
 					die('Curl failed: ' . curl_error($ch));
 				}
 

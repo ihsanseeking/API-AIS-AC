@@ -30,33 +30,32 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Name","name"=>"name"];
-			$this->col[] = ["label"=>"Ref Bengkel Type Id","name"=>"ref_bengkel_type_id","join"=>"ref_bengkel_type,name"];
 			$this->col[] = ["label"=>"Address","name"=>"address"];
 			$this->col[] = ["label"=>"Latitude","name"=>"latitude"];
 			$this->col[] = ["label"=>"Longitude","name"=>"longitude"];
 			$this->col[] = ["label"=>"Ref Area Id","name"=>"ref_area_id"];
 			$this->col[] = ["label"=>"Phone","name"=>"phone"];
+			$this->col[] = ["label"=>"Customer Id","name"=>"customer_id"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
-		$this->form = array();
-		$this->form[] = array("label"=>"Name","name"=>"name","type"=>"text","required"=>TRUE,"validation"=>"required|string|min:3|max:70","placeholder"=>"You can only enter the letter only");
-		$this->form[] = array("label"=>"Ref Bengkel Type Id","name"=>"ref_bengkel_type_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"ref_bengkel_type,name");
-		$this->form[] = array("label"=>"Address","name"=>"address","type"=>"textarea","required"=>TRUE,"validation"=>"required|string|min:5|max:5000");
-		$this->form[] = array("label"=>"Latitude","name"=>"latitude","type"=>"hidden","required"=>TRUE,"validation"=>"required|min:3|max:255");
-		$this->form[] = array("label"=>"Longitude","name"=>"longitude","type"=>"hidden","required"=>TRUE,"validation"=>"required|min:3|max:255");
-		$this->form[] = array("label"=>"Ref Area Id","name"=>"ref_area_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"ref_area,name");
-		$this->form[] = array("label"=>"Phone","name"=>"phone","type"=>"number","required"=>TRUE,"validation"=>"required|numeric","placeholder"=>"You can only enter the number only");
-		$this->form[] = array("label"=>"Fax","name"=>"fax","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
-		$this->form[] = array("label"=>"Email","name"=>"email","type"=>"email","required"=>TRUE,"validation"=>"required|min:3|max:255|email|unique:bengkel","placeholder"=>"Please enter a valid email address");
-		$this->form[] = array("label"=>"Contact Person1 Id","name"=>"contact_person1_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"contact_person1,id");
-		$this->form[] = array("label"=>"Contact Person2 Id","name"=>"contact_person2_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"contact_person2,id");
-		$this->form[] = array("label"=>"Owner Id","name"=>"owner_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"owner,id");
-		$this->form[] = array("label"=>"Max Order","name"=>"max_order","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
-		$this->form[] = array("label"=>"Account Number","name"=>"account_number","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
-		$this->form[] = array("label"=>"Account Name","name"=>"account_name","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
-
-			# END FORM DO NOT REMOVE THIS LINE     
+			$this->form = [];
+			$this->form[] = ["label"=>"Name","name"=>"name","type"=>"text","validation"=>"required|string|min:3|max:70","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Ref Bengkel Type Id","name"=>"ref_bengkel_type_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_bengkel_type,name"];
+			$this->form[] = ["label"=>"Address","name"=>"address","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Latitude","name"=>"latitude","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Longitude","name"=>"longitude","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Ref Area Id","name"=>"ref_area_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_area,name"];
+			$this->form[] = ["label"=>"Phone","name"=>"phone","type"=>"number","validation"=>"required|numeric","width"=>"col-sm-10","placeholder"=>"You can only enter the number only"];
+			$this->form[] = ["label"=>"Fax","name"=>"fax","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Email","name"=>"email","type"=>"email","validation"=>"min:3|max:255|email|unique:bengkel","width"=>"col-sm-10","placeholder"=>"Please enter a valid email address"];
+			$this->form[] = ["label"=>"Contact Person1 Id","name"=>"contact_person1_id","type"=>"select2","validation"=>"integer|min:0","width"=>"col-sm-10","datatable"=>"contact_person1,id"];
+			$this->form[] = ["label"=>"Contact Person2 Id","name"=>"contact_person2_id","type"=>"select2","validation"=>"integer|min:0","width"=>"col-sm-10","datatable"=>"contact_person2,id"];
+			$this->form[] = ["label"=>"Customer Id","name"=>"customer_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"customer,name"];
+			$this->form[] = ["label"=>"Max Order","name"=>"max_order","type"=>"number","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Account Number","name"=>"account_number","type"=>"text","validation"=>"","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Account Name","name"=>"account_name","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			# END FORM DO NOT REMOVE THIS LINE
 
 			/* 
 	        | ---------------------------------------------------------------------- 

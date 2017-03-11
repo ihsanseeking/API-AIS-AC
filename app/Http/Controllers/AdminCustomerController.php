@@ -29,12 +29,11 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
+			$this->col[] = ["label"=>"Id","name"=>"id"];
 			$this->col[] = ["label"=>"Name","name"=>"name"];
 			$this->col[] = ["label"=>"Email","name"=>"email"];
-			$this->col[] = ["label"=>"Cellphone","name"=>"cellphone"];
-			$this->col[] = ["label"=>"Address","name"=>"address"];
-			$this->col[] = ["label"=>"Ref Occupation Id","name"=>"ref_occupation_id"];
 			$this->col[] = ["label"=>"Deviceid","name"=>"deviceid"];
+			$this->col[] = ["label"=>"Uid","name"=>"uid"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
