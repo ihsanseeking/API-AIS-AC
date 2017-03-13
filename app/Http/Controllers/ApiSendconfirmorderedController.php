@@ -7,12 +7,12 @@
 
 		class ApiSendconfirmorderedController extends \crocodicstudio\crudbooster\controllers\ApiController {
 
-		    function __construct() {    
-				$this->table       = "order";        
-				$this->permalink   = "sendconfirmordered";    
-				$this->method_type = "get";    
+		    function __construct() {
+				$this->table       = "order";
+				$this->permalink   = "sendconfirmordered";
+				$this->method_type = "get";
 		    }
-		
+
 
 		    public function hook_before(&$postdata) {
 		        //This method will be execute before run the main process
@@ -26,7 +26,7 @@
 
 		    public function hook_after($postdata,&$result) {
 		        //This method will be execute after run the main process
-
+				DB::table('customer')->where('id', '=', $postdata[ 'customer_id'])->get();
 		    }
 
 		}

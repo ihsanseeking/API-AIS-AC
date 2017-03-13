@@ -7,12 +7,12 @@
 define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxHxlv1ZZcq3NkraLMlZNZLo0sxwirEipUOrfwNrb5iLCfEpM-WD1yhuA6-WzsG8saqpVr125dHndOcJm6EPuwV7QmsEB5wiyvu2Ohf');
 		class ApiSendnotiftocustomerController extends \crocodicstudio\crudbooster\controllers\ApiController {
 
-		    function __construct() {    
-				$this->table       = "bengkel";        
-				$this->permalink   = "sendnotiftocustomer";    
-				$this->method_type = "post";    
+		    function __construct() {
+				$this->table       = "bengkel";
+				$this->permalink   = "sendnotiftocustomer";
+				$this->method_type = "post";
 		    }
-		
+
 
 		    public function hook_before(&$postdata) {
 		        //This method will be execute before run the main process
@@ -36,16 +36,22 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$res['data']['image'] = 'https://zestblog.files.wordpress.com/2008/03/118.jpg';
 				$res['data']['payload'] = $payload;
 				$res['data']['timestamp'] = date('Y-m-d G:i:s');
-				
-				
+
+
 				$bengkels = DB::table('bengkel')->where('id', '=', $postdata['id'])->get();
 				$res['data']['bengkel'] = $bengkels{0};
-				
+
 				$service = DB::table('ref_service_type')->where('id', '=', $postdata['service_id'])->get();
 				$res['data']['service'] = $service;
-				
+
 				$customer = DB::table('customer')->where('id', '=', $postdata[ 'customer_id'])->get();
-				
+
+				$uid = $postdata['uid'];
+
+				$res['data']['uid_bengkel'] = $uid;
+
+
+
 				$fields = array(
 					'to' => $customer{0}->deviceid,
 					'data' => $res,
@@ -76,6 +82,6 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				}
 
 			}
-			
+
 
 		}

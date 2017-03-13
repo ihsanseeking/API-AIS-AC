@@ -137,6 +137,7 @@ $res['data']['bengkel'] = $bengkelShort;
 				$res['data']['order'] = $order{0};
 				$result['bengkel_id'] = $bengkelShort->id;
 				$result['bengkel_name'] = $bengkelShort->name;
+				$res['data']['uid_bengkel'] = $uidBengkel{0}->uid;
 				$fields = array(
 					'to' => $uidBengkel{0}->deviceid,
 					'data' => $res,
