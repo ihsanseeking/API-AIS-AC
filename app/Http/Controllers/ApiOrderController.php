@@ -31,9 +31,9 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$config=[];
 				$config['content'] = "adaw";
 				$config['to'] = "adaw.com";
-				$config['id_cms_users'] = 1;
+				$config['id_cms_users'] = [1];
 				$test = CRUDBooster::sendNotification($config);
-				echo $test;
+				//echo $test;
 
 		        //This method will be execute after run the main process
 				//This method will be execute before run the main process
