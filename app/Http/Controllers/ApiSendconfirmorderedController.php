@@ -38,7 +38,7 @@
 				$res['data']['timestamp'] = date('Y-m-d G:i:s');
 				$res['data']['type'] = 'notifOrdered';
 
-				$idbengkel = DB::table('customer')->where('uid', '=', $postdata['uid'])->get();
+				$idbengkel = DB::table('customer')->where('uid', '=', $postdata['uidBengkel'])->get();
 
 
 				$fields = array(
