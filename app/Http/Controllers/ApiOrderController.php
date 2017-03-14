@@ -57,6 +57,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$res['data']['carType'] = $postdata['car_manufacture_type'];
 				$res['data']['carYear'] = $postdata['car_year'];
 				// echo "customer id ".$postdata['customer_id'];
+				$res['data']['type'] = 'order';
 
 
 
