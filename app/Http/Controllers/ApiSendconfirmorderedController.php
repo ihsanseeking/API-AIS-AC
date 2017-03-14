@@ -38,10 +38,11 @@
 				$res['data']['timestamp'] = date('Y-m-d G:i:s');
 				$res['data']['type'] = 'notifOrdered';
 
-				$postdata['uid'] =
-				DB::table('customer')->where('id', '=', $postdata[ 'customer_id'])->get();
+				$idbengkel = DB::table('customer')->where('uid', '=', $postdata['uid'])->get();
+
+
 				$fields = array(
-					'to' => $customer{0}->deviceid,
+					'to' => $idbengkel{0}->deviceid,
 					'data' => $res,
 				);
 				$headers = array(
