@@ -135,7 +135,8 @@ $res['data']['bengkel'] = $bengkelShort;
 				$res['data']['service'] = $service{0};
 				$order = $service = DB::table('order')->where('id', '=', $result['id'])->get();
 				$res['data']['order'] = $order{0};
-
+				$result['bengkel_id'] = $bengkelShort->id;
+				$result['bengkel_name'] = $bengkelShort->name;
 				$fields = array(
 					'to' => $uidBengkel{0}->deviceid,
 					'data' => $res,
