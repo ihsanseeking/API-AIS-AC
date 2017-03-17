@@ -30,12 +30,11 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Name","name"=>"name"];
-			$this->col[] = ["label"=>"Ref Bengkel Type Id","name"=>"ref_bengkel_type_id"];
-			$this->col[] = ["label"=>"Address","name"=>"address"];
-			$this->col[] = ["label"=>"Latitude","name"=>"latitude"];
-			$this->col[] = ["label"=>"Longitude","name"=>"longitude"];
-			$this->col[] = ["label"=>"Ref Area Id","name"=>"ref_area_id"];
+			$this->col[] = ["label"=>"Bengkel Type","name"=>"ref_bengkel_type_id","join"=>"ref_bengkel_type,name"];
+			$this->col[] = ["label"=>"Customer","name"=>"customer_id","join"=>"customer,name"];
 			$this->col[] = ["label"=>"Phone","name"=>"phone"];
+			$this->col[] = ["label"=>"Email","name"=>"email"];
+			$this->col[] = ["label"=>"Address","name"=>"address"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE

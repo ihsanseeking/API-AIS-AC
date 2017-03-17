@@ -32,7 +32,6 @@
 			$this->col[] = ["label"=>"Id","name"=>"id"];
 			$this->col[] = ["label"=>"Name","name"=>"name"];
 			$this->col[] = ["label"=>"Email","name"=>"email"];
-			$this->col[] = ["label"=>"Deviceid","name"=>"deviceid"];
 			$this->col[] = ["label"=>"Uid","name"=>"uid"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
