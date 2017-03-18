@@ -29,7 +29,7 @@
 				$id = $postdata['id'];
 
 				$config=[];
-				$config['content'] = "adaw";
+				$config['content'] = "tidak mendapat montir";
 				$config['to'] = "adaw.com";
 				$config['id_cms_users'] = [1];
 				$test = CRUDBooster::sendNotification($config);
