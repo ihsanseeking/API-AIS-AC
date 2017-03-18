@@ -27,7 +27,7 @@
 		    public function hook_after($postdata,&$result) {
 		        //This method will be execute after run the main process
 				$id = $postdata['id'];
-				$bengkels = DB::table('order')->where('id', '=', $postdata['id'])->get();
+				$orders = DB::table('order')->where('id', '=', $postdata['id'])->get();
 				$customers = DB::table('customer')->where('id', '=', $postdata['id_customer'])->get();
 
 				$config=[];
