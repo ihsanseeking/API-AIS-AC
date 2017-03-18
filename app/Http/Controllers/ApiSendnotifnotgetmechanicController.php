@@ -31,8 +31,8 @@
 				$customers = DB::table('customer')->where('id', '=', $postdata['id_customer'])->get();
 
 				$config=[];
-				$config['content'] = $orders{0};
-				//$config['to'] = CRUDBooster::adminPath('customer/method');
+				$config['content'] = "Tidak mendapatkan bengkel";
+				$config['to'] = CRUDBooster::adminPath('customer/detail/'.$postdata['id_customer']);
 				$config['id_cms_users'] = [1];
 				$test = CRUDBooster::sendNotification($config);
 		    }
