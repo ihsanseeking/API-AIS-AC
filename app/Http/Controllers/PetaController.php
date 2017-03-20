@@ -30,11 +30,12 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Name","name"=>"name"];
-			$this->col[] = ["label"=>"Bengkel Type","name"=>"ref_bengkel_type_id","join"=>"ref_bengkel_type,name"];
-			$this->col[] = ["label"=>"Customer","name"=>"customer_id","join"=>"customer,name"];
-			$this->col[] = ["label"=>"Phone","name"=>"phone"];
-			$this->col[] = ["label"=>"Email","name"=>"email"];
+			$this->col[] = ["label"=>"Ref Bengkel Type Id","name"=>"ref_bengkel_type_id"];
 			$this->col[] = ["label"=>"Address","name"=>"address"];
+			$this->col[] = ["label"=>"Latitude","name"=>"latitude"];
+			$this->col[] = ["label"=>"Longitude","name"=>"longitude"];
+			$this->col[] = ["label"=>"Ref Area Id","name"=>"ref_area_id"];
+			$this->col[] = ["label"=>"Phone","name"=>"phone"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -48,6 +49,8 @@
 			$this->form[] = ["label"=>"Phone","name"=>"phone","type"=>"number","validation"=>"required|numeric","width"=>"col-sm-10","placeholder"=>"You can only enter the number only"];
 			$this->form[] = ["label"=>"Fax","name"=>"fax","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Email","name"=>"email","type"=>"email","validation"=>"required|min:3|max:255|email|unique:bengkel","width"=>"col-sm-10","placeholder"=>"Please enter a valid email address"];
+			$this->form[] = ["label"=>"Contact Person1 Id","name"=>"contact_person1_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"contact_person1,id"];
+			$this->form[] = ["label"=>"Contact Person2 Id","name"=>"contact_person2_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"contact_person2,id"];
 			$this->form[] = ["label"=>"Customer Id","name"=>"customer_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"customer,name"];
 			$this->form[] = ["label"=>"Max Order","name"=>"max_order","type"=>"number","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Account Number","name"=>"account_number","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];

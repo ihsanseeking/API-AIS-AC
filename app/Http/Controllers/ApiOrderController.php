@@ -19,7 +19,20 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 		    public function hook_before(&$postdata) {
 
 
-		        //This method will be execute before run the main process
+
+		    }
+
+		    public function hook_query(&$query) {
+		        //This method is to customize the sql query
+
+		    }
+
+		    public function hook_after($postdata,&$result) {
+				
+				//echo $test;
+
+		        //This method will be execute after run the main process
+				//This method will be execute before run the main process
 				$res = array();
 				$payload = array();
 				$payload['team'] = 'India';
@@ -40,6 +53,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$res['data']['carType'] = $postdata['car_manufacture_type'];
 				$res['data']['carYear'] = $postdata['car_year'];
 				// echo "customer id ".$postdata['customer_id'];
+				$res['data']['type'] = 'order';
 
 
 
@@ -61,14 +75,19 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 
 				$batasUtara = floatval($postdata['latitude']) +  0.04521198;
 				$batasTimur = floatval($postdata['longitude']) +  0.04521198;
-
+				$batasjarak = 0.04521198;
+				//echo $batasjarak;
+				$query = "cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - ".$batasjarak.")";
+				//echo $query;
 				$bengkels =
-				DB::table('bengkel')->whereRaw("cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + 0.04521198) and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - 0.04521198) and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + 0.04521198) and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - 0.04521198)")->get();
+				DB::table('bengkel')->whereRaw("cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - ".$batasjarak.")")->get();
 				$res['data']['lat'] = $postdata['latitude'];
 				$res['data']['lon'] = $postdata['longitude'];
+
 				$distanceShort = 0;
 				$idCustomerBengkel=0;
 				$bengkelShort = 0;
+				$earthRadius = 6371000;
 				foreach ($bengkels as $key => $bengkel) {
 					# code...
 					//echo $bengkel->latitude;
@@ -83,35 +102,43 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 					  $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
 					    cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
 					  $distance =  $angle * $earthRadius;
-
+						//echo "jarak : " . $distance;
+						//echo "bengkel : ". $bengkel->id;
 					  if ($key == 0) {
 						  $distanceShort = $distance;
 						  $res['data']['latBengkel'] = $bengkel->latitude;
 		  				  $res['data']['lonBengkel'] = $bengkel->longitude;
-						  $idCustomerBengkel = $bengkel->owner_id;
+						  $idCustomerBengkel = $bengkel->customer_id;
 						  $bengkelShort = $bengkel;
 					  } else {
 						  if ($distance < $distanceShort){
 							  $distanceShort = $distance;
 							  $res['data']['latBengkel'] = $bengkel->latitude;
 			  				  $res['data']['lonBengkel'] = $bengkel->longitude;
-							  $idCustomerBengkel = $bengkel->owner_id;
+							  $idCustomerBengkel = $bengkel->customer_id;
+							  $bengkelShort = $bengkel;
 						  }
 					  }
 				}
-				//echo 'jarak terdekat '. $distanceShort;
-
+				//print_r ($bengkelShort);
+				//echo 'bengkel terdekat '. $bengkelShort['name'];
+//
 				$uidBengkel = DB::table('customer')->where('id', '=', $idCustomerBengkel)->get();
 				//echo 'uid '.$uidBengkel{0};
 				$customer = DB::table('customer')->where('id', '=', $postdata['customer_id'])->get();
 				$res['data']['customer'] = $customer;
-
-				$service = DB::table('customer')->where('id', '=', $postdata['idservice'])->get();
-				$res['data']['service'] = $customer;
-
+$res['data']['bengkel'] = $bengkelShort;
+				$service = DB::table('ref_service_type')->where('id', '=', $postdata['idservice'])->get();
+				$res['data']['service'] = $service{0};
+				$order  = DB::table('order')->where('id', '=', $result['id'])->get();
+				$res['data']['order'] = $order{0};
+				$result['bengkel_id'] = $bengkelShort->id;
+				$result['bengkel_name'] = $bengkelShort->name;
+				$res['data']['uid_bengkel'] = $uidBengkel{0}->uid;
 				$fields = array(
 					'to' => $uidBengkel{0}->deviceid,
 					'data' => $res,
+
 				);
 
 				//prosess ngirim notifikasi pake firebase
@@ -129,24 +156,9 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
 				//echo json_encode($fields);
 				// Execute post
-				$result = curl_exec($ch);
-				if ($result === FALSE) {
+				$hasil = curl_exec($ch);
+				if ($hasil === FALSE) {
 					die('Curl failed: ' . curl_error($ch));
-				}
-
-		    }
-
-		    public function hook_query(&$query) {
-		        //This method is to customize the sql query
-
-		    }
-
-		    public function hook_after($postdata,&$result) {
-		        //This method will be execute after run the main process
-				if ($postdata->customer_id == 1 ){
-
-				} else {
-
 				}
 
 		    }
