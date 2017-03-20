@@ -42,8 +42,8 @@
 			$this->form[] = ["label"=>"Name","name"=>"name","type"=>"text","validation"=>"required|string|min:3|max:70","width"=>"col-sm-10","placeholder"=>"You can only enter the letter only"];
 			$this->form[] = ["label"=>"Ref Bengkel Type Id","name"=>"ref_bengkel_type_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_bengkel_type,name"];
 			$this->form[] = ["label"=>"Address","name"=>"address","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Latitude","name"=>"latitude","type"=>"hidden","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Longitude","name"=>"longitude","type"=>"hidden","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Latitude","name"=>"latitude","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Longitude","name"=>"longitude","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Ref Area Id","name"=>"ref_area_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_area,name"];
 			$this->form[] = ["label"=>"Phone","name"=>"phone","type"=>"number","validation"=>"required|numeric","width"=>"col-sm-10","placeholder"=>"You can only enter the number only"];
 			$this->form[] = ["label"=>"Fax","name"=>"fax","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
