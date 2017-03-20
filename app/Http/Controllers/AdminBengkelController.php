@@ -30,7 +30,7 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Name","name"=>"name"];
-			$this->col[] = ["label"=>"Ref Bengkel Type Id","name"=>"ref_bengkel_type_id","join"=>"ref_bengkel_type,name"];
+			$this->col[] = ["label"=>"Ref Bengkel Type Id","name"=>"ref_bengkel_type_id"];
 			$this->col[] = ["label"=>"Address","name"=>"address"];
 			$this->col[] = ["label"=>"Latitude","name"=>"latitude"];
 			$this->col[] = ["label"=>"Longitude","name"=>"longitude"];
@@ -55,6 +55,28 @@
 		$this->form[] = array("label"=>"Max Order","name"=>"max_order","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
 		$this->form[] = array("label"=>"Account Number","name"=>"account_number","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
 		$this->form[] = array("label"=>"Account Name","name"=>"account_name","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
+		$this->form[] = array("label"=>"Cek Aki Motor","name"=>"cek_aki_motor","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Cek Aki Mobil","name"=>"cek_aki_mobil","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Ganti Aki","name"=>"ganti_aki","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Stroom Aki","name"=>"stroom_aki","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Jumper","name"=>"jumper","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Tambal Ban Motor","name"=>"tambal_ban_motor","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Ganti Ban Motor","name"=>"ganti_ban_motor","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Kirim Bensin","name"=>"kirim_bensin","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Tambal Ban Mobil","name"=>"tambal_ban_mobil","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Ganti Ban Mobil","name"=>"ganti_ban_mobil","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Cuci Cepat Motor","name"=>"cuci_cepat_motor","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Cuci Mengkilap Motor","name"=>"cuci_mengkilap_motor","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Cuci Luar Mobil","name"=>"cuci_luar_mobil","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Cuci Lengkap Mobil","name"=>"cuci_lengkap_mobil","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Cek Mesin Motor","name"=>"cek_mesin_motor","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Ganti Oli Motor","name"=>"ganti_oli_motor","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Cek Mesin Mobil","name"=>"cek_mesin_mobil","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Ganti Oli Mobil","name"=>"ganti_oli_mobil","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Derek","name"=>"derek","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"Ganti Sparepart Mobil","name"=>"ganti_sparepart_mobil","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"By Driver","name"=>"by_driver","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
+		$this->form[] = array("label"=>"No Driver","name"=>"no_driver","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0");
 
 			# END FORM DO NOT REMOVE THIS LINE     
 

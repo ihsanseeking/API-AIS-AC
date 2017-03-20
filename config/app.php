@@ -181,7 +181,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-		Ixudra\Curl\CurlServiceProvider::class,
+		//Ixudra\Curl\CurlServiceProvider::class,
 
 
     ],

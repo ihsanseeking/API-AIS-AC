@@ -5,12 +5,12 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminEmployeeController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminServiceController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function __construct() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->title_field = "first_name";
+			$this->title_field = "id";
 			$this->limit = "20";
 			$this->orderby = "id,desc";
 			$this->global_privilege = false;
@@ -24,32 +24,26 @@
 			$this->button_filter = true;
 			$this->button_import = false;
 			$this->button_export = false;
-			$this->table = "employee";
+			$this->table = "service";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Bengkel Id","name"=>"bengkel_id","join"=>"bengkel,name"];
-			$this->col[] = ["label"=>"First Name","name"=>"first_name"];
-			$this->col[] = ["label"=>"Last Name","name"=>"last_name"];
-			$this->col[] = ["label"=>"Nik","name"=>"nik"];
-			$this->col[] = ["label"=>"Cellphone","name"=>"cellphone"];
-			$this->col[] = ["label"=>"Email","name"=>"email"];
-			$this->col[] = ["label"=>"Address","name"=>"address"];
+			$this->col[] = ["label"=>"Ref Service Id","name"=>"ref_service_id","join"=>"ref_service_type,name"];
+			$this->col[] = ["label"=>"Price","name"=>"price"];
+			$this->col[] = ["label"=>"Duration Min","name"=>"duration_min"];
+			$this->col[] = ["label"=>"Duration Max","name"=>"duration_max"];
+			$this->col[] = ["label"=>"Note","name"=>"note"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
 			$this->form[] = ["label"=>"Bengkel Id","name"=>"bengkel_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"bengkel,name"];
-			$this->form[] = ["label"=>"First Name","name"=>"first_name","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Last Name","name"=>"last_name","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Nik","name"=>"nik","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Cellphone","name"=>"cellphone","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Email","name"=>"email","type"=>"email","validation"=>"required|min:3|max:255|email|unique:employee","width"=>"col-sm-10","placeholder"=>"Please enter a valid email address"];
-			$this->form[] = ["label"=>"Address","name"=>"address","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Ref Area Id","name"=>"ref_area_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_area,name"];
-			$this->form[] = ["label"=>"Ref Service Type Id","name"=>"ref_service_type_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_service_type,name"];
-			$this->form[] = ["label"=>"Image Id","name"=>"image_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"image,id"];
+			$this->form[] = ["label"=>"Ref Service Id","name"=>"ref_service_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_service,id"];
+			$this->form[] = ["label"=>"Price","name"=>"price","type"=>"number","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Duration Min","name"=>"duration_min","type"=>"number","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Duration Max","name"=>"duration_max","type"=>"number","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Note","name"=>"note","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
 			# END FORM DO NOT REMOVE THIS LINE
 
