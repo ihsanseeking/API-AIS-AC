@@ -31,8 +31,8 @@
 			$this->col = [];
 			$this->col[] = ["label"=>"Wheel","name"=>"wheel"];
 			$this->col[] = ["label"=>"Name","name"=>"name"];
+			$this->col[] = ["label"=>"Sub","name"=>"sub"];
 			$this->col[] = ["label"=>"Description","name"=>"description"];
-			$this->col[] = ["label"=>"Category","name"=>"category"];
 			$this->col[] = ["label"=>"Note","name"=>"note"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
@@ -40,8 +40,8 @@
 			$this->form = [];
 			$this->form[] = ["label"=>"Wheel","name"=>"wheel","type"=>"number","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Name","name"=>"name","type"=>"text","validation"=>"required|string|min:3|max:70","width"=>"col-sm-10","placeholder"=>"You can only enter the letter only"];
+			$this->form[] = ["label"=>"Sub","name"=>"sub","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Description","name"=>"description","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Category","name"=>"category","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Note","name"=>"note","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
 			# END FORM DO NOT REMOVE THIS LINE
 
