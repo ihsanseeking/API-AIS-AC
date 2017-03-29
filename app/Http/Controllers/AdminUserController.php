@@ -48,8 +48,8 @@
 			$this->form[] = ["label"=>"Cellphone","name"=>"cellphone","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Address","name"=>"address","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Ref Area Id","name"=>"ref_area_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_area,name"];
-			$this->form[] = ["label"=>"Facebook Id","name"=>"facebook_id","type"=>"select2","validation"=>"required|min:3|max:255","width"=>"col-sm-10","datatable"=>"facebook,id"];
-			$this->form[] = ["label"=>"Twitter Id","name"=>"twitter_id","type"=>"select2","validation"=>"required|min:3|max:255","width"=>"col-sm-10","datatable"=>"twitter,id"];
+			$this->form[] = ["label"=>"Facebook Id","name"=>"facebook_id","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Twitter Id","name"=>"twitter_id","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			/* 
