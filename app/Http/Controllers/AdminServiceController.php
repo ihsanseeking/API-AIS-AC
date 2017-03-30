@@ -23,25 +23,29 @@
 			$this->button_show = true;
 			$this->button_filter = true;
 			$this->button_import = false;
-			$this->button_export = false;
+			$this->button_export = true;
 			$this->table = "service";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Bengkel Id","name"=>"bengkel_id","join"=>"bengkel,name"];
-			$this->col[] = ["label"=>"Ref Service Id","name"=>"ref_service_id","join"=>"ref_service_type,name"];
-			$this->col[] = ["label"=>"Price","name"=>"price"];
-			$this->col[] = ["label"=>"Duration Min","name"=>"duration_min"];
-			$this->col[] = ["label"=>"Duration Max","name"=>"duration_max"];
-			$this->col[] = ["label"=>"Note","name"=>"note"];
+			$this->col[] = ["label"=>"Bengkel","name"=>"bengkel_id","join"=>"bengkel,name"];
+			$this->col[] = ["label"=>"Kategori Service","name"=>"ref_service_id","join"=>"ref_service_type,name"];
+			$this->col[] = ["label"=>"Service","name"=>"ref_service_id","join"=>"ref_service_type,sub"];
+			$this->col[] = ["label"=>"Harga Barang","name"=>"hb"];
+			$this->col[] = ["label"=>"Harga Jasa","name"=>"hj"];
+			$this->col[] = ["label"=>"Jasa Pengiriman","name"=>"jp"];
+			$this->col[] = ["label"=>"Biaya Denda","name"=>"bd"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ["label"=>"Bengkel Id","name"=>"bengkel_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"bengkel,name"];
-			$this->form[] = ["label"=>"Ref Service Id","name"=>"ref_service_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_service,id"];
-			$this->form[] = ["label"=>"Price","name"=>"price","type"=>"number","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Bengkel","name"=>"bengkel_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"bengkel,name"];
+			$this->form[] = ["label"=>"Ref Service Id","name"=>"ref_service_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_service_type,sub"];
+			$this->form[] = ["label"=>"Hb","name"=>"hb","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Hj","name"=>"hj","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Jp","name"=>"jp","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Bd","name"=>"bd","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Duration Min","name"=>"duration_min","type"=>"number","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Duration Max","name"=>"duration_max","type"=>"number","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Note","name"=>"note","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
@@ -279,3 +283,5 @@
 
 
 	}
+
+
