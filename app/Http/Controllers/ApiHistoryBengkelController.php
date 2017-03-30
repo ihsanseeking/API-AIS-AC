@@ -28,8 +28,8 @@
 		    }
 
 		    public function hook_after($postdata,&$result) {
-		        $detail_bengkel = $postdata['detail_bengkel_id'];
-				$detail_customer = $postdata['detail_customer_id'];
+		        $detail_bengkel = $postdata['detail_bengkel_order_id'];
+				$detail_customer = $postdata['detail_customer_order_id'];
 				$list_bengkel = $postdata['list_bengkel_id'];
 				$list_customer = $postdata['list_customer_id'];
 				
@@ -38,7 +38,7 @@
 				->join('customer', 'customer.id', '=', 'order.customer_id')
 				->leftjoin('vehicle', 'vehicle.user_id', '=', 'order.customer_id')
 				->leftjoin('ref_vehicle_type', 'ref_vehicle_type.id', '=', 'vehicle.ref_vehicle_type_id')
-				->leftjoin('ref_brand', 'ref_brand.id', '=', 'vehicle.ref_brand_id')
+				->leftjoin('ref_brand', 'ref_brand.id', '=', 'ref_vehicle_type.ref_brand_id')
 				->leftjoin('review', 'review.order_id', '=' ,'order.id')
 				->join('service', 'service.id', '=', 'order.ref_service_id')
 				->join('bengkel', 'bengkel.id', '=', 'service.bengkel_id')
@@ -89,8 +89,8 @@
 					'service.bd',
 					
 					'service.ref_service_id',
-					'ref_service_type.sub',
-					'ref_service_type.name',
+					'ref_service_type.sub as service_sub',
+					'ref_service_type.name as service_name',
 					'ref_service_type.wheel',
 					'ref_service_type.description',
 					
@@ -116,7 +116,7 @@
 					'order.service_location', 
 					'order.latitude',
 					'order.longitude',
-					'order.area_id',
+					//'order.area_id',
 					//'order.is_emergency',
 					'order.status',
 					'order.method',
@@ -130,40 +130,40 @@
 					//'customer.deviceid',
 					//'customer.ref_occupation_id',
 					
-					'vehicle.user_id',
+					//'vehicle.user_id',
 					'vehicle.year',
 					
-					'vehicle.ref_vehicle_type_id',
+					//'vehicle.ref_vehicle_type_id',
 					'ref_vehicle_type.wheel',
 					'ref_vehicle_type.type',
 					//'ref_vehicle_type.transmission',
 					
-					'ref_vehicle_type.ref_brand_id',
+					//'ref_vehicle_type.ref_brand_id',
 					'ref_brand.name',
 					
-					'review.id',
+					//'review.id',
 					'review.penilaian',
 					'review.feedback',
 					
-					'order.ref_service_id',
+					//'order.ref_service_id',
 					//'service.hb',
 					'service.hj',
 					'service.jp',
 					'service.bd',
 					//'total.?',
 					
-					'service.ref_service_id',
-					'ref_service_type.sub',
-					'ref_service_type.name',
+					//'service.ref_service_id',
+					'ref_service_type.sub as service_sub',
+					'ref_service_type.name as service_name',
 					//'ref_service_type.wheel',
 					//'ref_service_type.description',
 					
-					'service.bengkel_id',
+					//'service.bengkel_id',
 					'bengkel.name',
 					'bengkel.address',
 					'bengkel.latitude',
 					'bengkel.longitude',
-					'bengkel.ref_area_id',
+					'bengkel.ref_area_id'
 					//'bengkel.phone',
 					//'bengkel.fax',
 					//'bengkel.email',
@@ -186,7 +186,7 @@
 					//'order.method',
 					//'order.payment_status',
 					
-					//'order.customer_id',
+					'order.customer_id',
 					//'customer.name',
 					//'customer.email',
 					//'customer.cellphone',
@@ -194,31 +194,31 @@
 					//'customer.deviceid',
 					//'customer.ref_occupation_id',
 					
-					'vehicle.user_id',
+					//'vehicle.user_id',
 					'vehicle.year',
 					
-					'vehicle.ref_vehicle_type_id',
+					//'vehicle.ref_vehicle_type_id',
 					'ref_vehicle_type.wheel',
 					'ref_vehicle_type.type',
 					//'ref_vehicle_type.transmission',
 					
-					'ref_vehicle_type.ref_brand_id',
+					//'ref_vehicle_type.ref_brand_id',
 					'ref_brand.name',
 					
-					'review.id',
+					//'review.id',
 					'review.penilaian',
 					'review.feedback',
 					
-					'order.ref_service_id',
+					//'order.ref_service_id',
 					//'service.hb',
 					//'service.hj',
 					//'service.jp',
 					//'service.bd',
 					//'total.?',
 					
-					'service.ref_service_id',
-					'ref_service_type.sub',
-					//'ref_service_type.name',
+					//'service.ref_service_id',
+					'ref_service_type.sub as service_sub',
+					'ref_service_type.name as service_name',
 					//'ref_service_type.wheel',
 					//'ref_service_type.description',
 					
@@ -226,16 +226,16 @@
 					//'bengkel.name',
 					//'bengkel.address',
 					'bengkel.latitude',
-					'bengkel.longitude',
+					'bengkel.longitude'
 					//'bengkel.ref_area_id',
 					//'bengkel.phone',
 					//'bengkel.fax',
 					//'bengkel.email',
 					//'bengkel.account_name',
-					//'bengkel.account_number'
+					//'bengkel.account_number
 				);
 				
-				$historys_detail_customer = $historys->select(
+				$history_detail_customer = $historys->select(
 					'order.id', 
 					'order.order_date', 
 					'order.order_time', 
@@ -244,7 +244,7 @@
 					'order.service_location', 
 					'order.latitude',
 					'order.longitude',
-					'order.area_id',
+					//'order.area_id',
 					//'order.is_emergency',
 					'order.status',
 					'order.method',
@@ -258,31 +258,31 @@
 					//'customer.deviceid',
 					//'customer.ref_occupation_id',
 					
-					'vehicle.user_id',
+					//'vehicle.user_id',
 					'vehicle.year',
 					
-					'vehicle.ref_vehicle_type_id',
+					//'vehicle.ref_vehicle_type_id',
 					'ref_vehicle_type.wheel',
 					'ref_vehicle_type.type',
 					//'ref_vehicle_type.transmission',
 					
-					'ref_vehicle_type.ref_brand_id',
+					//'ref_vehicle_type.ref_brand_id',
 					'ref_brand.name',
 					
 					//'review.id',
 					//'review.penilaian',
 					//'review.feedback',
 					
-					'order.ref_service_id',
+					//'order.ref_service_id',
 					//'service.hb',
 					'service.hj',
 					'service.jp',
 					'service.bd',
 					//'total.?',
 					
-					'service.ref_service_id',
-					'ref_service_type.sub',
-					'ref_service_type.name',
+					//'service.ref_service_id',
+					'ref_service_type.sub as service_sub',
+					'ref_service_type.name as service_name',
 					//'ref_service_type.wheel',
 					//'ref_service_type.description',
 					
@@ -290,8 +290,8 @@
 					'bengkel.name',
 					'bengkel.address',
 					'bengkel.latitude',
-					'bengkel.longitude',
-					'bengkel.ref_area_id',
+					'bengkel.longitude'
+					//'bengkel.ref_area_id',
 					//'bengkel.phone',
 					//'bengkel.fax',
 					//'bengkel.email',
@@ -314,7 +314,7 @@
 					//'order.method',
 					//'order.payment_status',
 					
-					//'order.customer_id',
+					'order.customer_id',
 					//'customer.name',
 					//'customer.email',
 					//'customer.cellphone',
@@ -322,31 +322,31 @@
 					//'customer.deviceid',
 					//'customer.ref_occupation_id',
 					
-					'vehicle.user_id',
+					//'vehicle.user_id',
 					'vehicle.year',
 					
-					'vehicle.ref_vehicle_type_id',
+					//'vehicle.ref_vehicle_type_id',
 					'ref_vehicle_type.wheel',
 					'ref_vehicle_type.type',
 					//'ref_vehicle_type.transmission',
 					
-					'ref_vehicle_type.ref_brand_id',
+					//'ref_vehicle_type.ref_brand_id',
 					'ref_brand.name',
 					
 					//'review.id',
 					//'review.penilaian',
 					//'review.feedback',
 					
-					'order.ref_service_id',
+					//'order.ref_service_id',
 					//'service.hb',
 					//'service.hj',
 					//'service.jp',
 					//'service.bd',
 					//'total.?',
 					
-					'service.ref_service_id',
-					'ref_service_type.sub',
-					//'ref_service_type.name',
+					//'service.ref_service_id',
+					'ref_service_type.sub as service_sub',
+					'ref_service_type.name as service_name',
 					//'ref_service_type.wheel',
 					//'ref_service_type.description',
 					
@@ -354,7 +354,7 @@
 					//'bengkel.name',
 					//'bengkel.address',
 					'bengkel.latitude',
-					'bengkel.longitude',
+					'bengkel.longitude'
 					//'bengkel.ref_area_id',
 					//'bengkel.phone',
 					//'bengkel.fax',
@@ -365,18 +365,18 @@
 				
 				if (!is_null($detail_bengkel)){
 					 
-					$history = $history_detail_bengkel->where('service.bengkel_id', '=', $detail_bengkel)->first();
+					$history = $history_detail_bengkel->where('order.id', '=', $detail_bengkel)->first();
 				} elseif (!is_null($detail_customer)){
 					
-					$history = $history_detail_customer->where('order.customer_id', '=', $detail_customer)->first();
+					$history = $history_detail_customer->where('order.id', '=', $detail_customer)->first();
 				} elseif (!is_null($list_bengkel)){
 					
 					$history = $history_list_bengkel->where('service.bengkel_id', '=', $list_bengkel)->get();
-				} elseif (!is_null($list_bengkel)){
+				} elseif (!is_null($list_customer)){
 					
-					$history = $history_list_customer->where('order.customer_id', '=', $list_bengkel)->get();
+					$history = $history_list_customer->where('order.customer_id', '=', $list_customer)->get();
 				} else {
-					$history = $historys->get();
+					$history = $historys_all->get();
 				}
 				
 				$result['data']=$history;
