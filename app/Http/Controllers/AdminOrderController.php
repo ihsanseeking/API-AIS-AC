@@ -29,30 +29,32 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Customer Id","name"=>"customer_id","join"=>"customer,name"];
+			$this->col[] = ["label"=>"Customer","name"=>"customer_id","join"=>"customer,name"];
 			$this->col[] = ["label"=>"Order Date","name"=>"order_date"];
 			$this->col[] = ["label"=>"Order Time","name"=>"order_time"];
-			$this->col[] = ["label"=>"Service Date","name"=>"service_date"];
-			$this->col[] = ["label"=>"Service Time","name"=>"service_time"];
 			$this->col[] = ["label"=>"Service Location","name"=>"service_location"];
-			$this->col[] = ["label"=>"Latitude","name"=>"latitude"];
+			$this->col[] = ["label"=>"Service","name"=>"ref_service_id","join"=>"service,ref_service_id"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
-			$this->form = [];
-			$this->form[] = ["label"=>"Customer Id","name"=>"customer_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"customer,name"];
-			$this->form[] = ["label"=>"Order Date","name"=>"order_date","type"=>"date","validation"=>"required|date","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Order Time","name"=>"order_time","type"=>"time","validation"=>"required|date_format:H:i:s","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Service Date","name"=>"service_date","type"=>"date","validation"=>"required|date","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Service Time","name"=>"service_time","type"=>"time","validation"=>"required|date_format:H:i:s","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Service Location","name"=>"service_location","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Latitude","name"=>"latitude","type"=>"hidden","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Longitude","name"=>"longitude","type"=>"hidden","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Is Emergency","name"=>"is_emergency","type"=>"radio","validation"=>"required|integer","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"License Plate","name"=>"license_plate","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Ref Service Id","name"=>"ref_service_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"service,id"];
-			$this->form[] = ["label"=>"Payment Status","name"=>"payment_status","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			# END FORM DO NOT REMOVE THIS LINE
+		$this->form = array();
+		$this->form[] = array("label"=>"Customer Id","name"=>"customer_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"customer,name");
+		$this->form[] = array("label"=>"Order Date","name"=>"order_date","type"=>"date","required"=>TRUE,"validation"=>"required|date");
+		$this->form[] = array("label"=>"Order Time","name"=>"order_time","type"=>"time","required"=>TRUE,"validation"=>"required|date_format:H:i:s");
+		$this->form[] = array("label"=>"Service Date","name"=>"service_date","type"=>"date","required"=>TRUE,"validation"=>"required|date");
+		$this->form[] = array("label"=>"Service Time","name"=>"service_time","type"=>"time","required"=>TRUE,"validation"=>"required|date_format:H:i:s");
+		$this->form[] = array("label"=>"Service Location","name"=>"service_location","type"=>"textarea","required"=>TRUE,"validation"=>"required|string|min:5|max:5000");
+		$this->form[] = array("label"=>"Latitude","name"=>"latitude","type"=>"hidden","required"=>TRUE,"validation"=>"required|min:3|max:255");
+		$this->form[] = array("label"=>"Longitude","name"=>"longitude","type"=>"hidden","required"=>TRUE,"validation"=>"required|min:3|max:255");
+		$this->form[] = array("label"=>"Area Id","name"=>"area_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"area,id");
+		$this->form[] = array("label"=>"Is Emergency","name"=>"is_emergency","type"=>"radio","required"=>TRUE,"validation"=>"required|integer","dataenum"=>"Array");
+		$this->form[] = array("label"=>"License Plate","name"=>"license_plate","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
+		$this->form[] = array("label"=>"Ref Service Id","name"=>"ref_service_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"ref_service,id");
+		$this->form[] = array("label"=>"Status","name"=>"status","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
+		$this->form[] = array("label"=>"Method","name"=>"method","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
+		$this->form[] = array("label"=>"Payment Status","name"=>"payment_status","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
+
+			# END FORM DO NOT REMOVE THIS LINE     
 
 			/* 
 	        | ---------------------------------------------------------------------- 
