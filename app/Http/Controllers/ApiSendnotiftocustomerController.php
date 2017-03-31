@@ -38,19 +38,21 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$res['data']['timestamp'] = date('Y-m-d G:i:s');
 				$res['data']['type'] = 'notifBengkel';
 
-				$bengkels = DB::table('bengkel')->where('id', '=', $postdata['id'])->get();
-				$res['data']['bengkel'] = $bengkels{0};
-				$res['data']['service'] = DB::table('service')->where('id', '=', $postdata['service_id'])->where('bengkel_id', '=', $bengkels{0}->id)->get();
-				$service = DB::table('ref_service_type')->where('id', '=', $postdata['service_id'])->get();
-				$res['data']['service_type'] = $service;
+				$bengkels = $result;
+				$res['data']['bengkel'] = $bengkels;
+				$services = DB::table('service')->where('ref_service_id', '=', $postdata['service_id'])->where('bengkel_id', '=', $bengkels['id'])->get();
+				$res['data']['service'] = $services;
+				
+				
+				$servicetypes = DB::table('ref_service_type')->where('id', '=', $services{0}->ref_service_id)->get();
+				$res['data']['service_type'] = $servicetypes;
 
 				$customer = DB::table('customer')->where('id', '=', $postdata[ 'customer_id'])->get();
 				
 				
 
-				$uid = $postdata['uid'];
-
-				$res['data']['uid_bengkel'] = $uid;
+				$cusBengkel = DB::table('customer')->where('id', '=', $bengkels['customer_id'])->get();
+				$res['data']['uid_bengkel'] = $cusBengkel{0}->uid;
 
 
 

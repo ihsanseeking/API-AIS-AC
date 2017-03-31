@@ -42,16 +42,9 @@
 				->leftjoin('review', 'review.order_id', '=' ,'order.id')
 				->join('service', 'service.id', '=', 'order.ref_service_id')
 				->join('bengkel', 'bengkel.id', '=', 'service.bengkel_id')
-<<<<<<< HEAD
-				->join('ref_service_type', 'ref_service_type.id', '=', 'service.ref_service_id')
-				->join('ref_vehicle_type', 'ref_vehicle_type.id', '=', 'vehicle.ref_vehicle_type_id')
-				->select(
-				
-=======
 				->join('ref_service_type', 'ref_service_type.id', '=', 'service.ref_service_id');
 				
 				$historys_all = $historys->select(
->>>>>>> 60e40c2936c87f19250638527a731a1f3e05ff8c
 					'order.id', 
 					'order.order_date', 
 					'order.order_time', 
