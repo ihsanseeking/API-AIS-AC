@@ -8,27 +8,28 @@
 	class AdminOrderController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function __construct() {
-	    	# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->table               = "order";	        
-			$this->title_field         = "id";
-			$this->limit               = 20;
-			$this->orderby             = "id,desc";
-			$this->global_privilege    = FALSE;	        
-			$this->button_table_action = TRUE;   
-			$this->button_action_style = "button_icon";     
-			$this->button_add          = TRUE;
-			$this->button_delete       = TRUE;
-			$this->button_edit         = TRUE;
-			$this->button_detail       = TRUE;
-			$this->button_show         = TRUE;
-			$this->button_filter       = TRUE;        
-			$this->button_export       = FALSE;	        
-			$this->button_import       = FALSE;	
+
+			# START CONFIGURATION DO NOT REMOVE THIS LINE
+			$this->title_field = "id";
+			$this->limit = "20";
+			$this->orderby = "id,desc";
+			$this->global_privilege = false;
+			$this->button_table_action = true;
+			$this->button_action_style = "button_icon";
+			$this->button_add = true;
+			$this->button_edit = true;
+			$this->button_delete = true;
+			$this->button_detail = true;
+			$this->button_show = true;
+			$this->button_filter = true;
+			$this->button_import = false;
+			$this->button_export = false;
+			$this->table = "order";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Customer Id","name"=>"customer_id"];
+			$this->col[] = ["label"=>"Customer Id","name"=>"customer_id","join"=>"customer,name"];
 			$this->col[] = ["label"=>"Order Date","name"=>"order_date"];
 			$this->col[] = ["label"=>"Order Time","name"=>"order_time"];
 			$this->col[] = ["label"=>"Service Date","name"=>"service_date"];
@@ -48,9 +49,9 @@
 			$this->form[] = ["label"=>"Latitude","name"=>"latitude","type"=>"hidden","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Longitude","name"=>"longitude","type"=>"hidden","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Is Emergency","name"=>"is_emergency","type"=>"radio","validation"=>"required|integer","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"License Plate","name"=>"license_plate","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10","dataenum"=>"Array"];
-			$this->form[] = ["label"=>"Ref Service Id","name"=>"ref_service_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Payment Status","name"=>"payment_status","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10","datatable"=>"ref_service,id"];
+			$this->form[] = ["label"=>"License Plate","name"=>"license_plate","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Ref Service Id","name"=>"ref_service_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"service,id"];
+			$this->form[] = ["label"=>"Payment Status","name"=>"payment_status","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			/* 

@@ -40,11 +40,13 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 
 				$bengkels = DB::table('bengkel')->where('id', '=', $postdata['id'])->get();
 				$res['data']['bengkel'] = $bengkels{0};
-
+				$res['data']['service'] = DB::table('service')->where('id', '=', $postdata['service_id'])->where('bengkel_id', '=', $bengkels{0}->id)->get();
 				$service = DB::table('ref_service_type')->where('id', '=', $postdata['service_id'])->get();
-				$res['data']['service'] = $service;
+				$res['data']['service_type'] = $service;
 
 				$customer = DB::table('customer')->where('id', '=', $postdata[ 'customer_id'])->get();
+				
+				
 
 				$uid = $postdata['uid'];
 

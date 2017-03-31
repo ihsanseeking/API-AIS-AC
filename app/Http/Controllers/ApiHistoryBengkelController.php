@@ -38,7 +38,9 @@
 				->join('service', 'service.id', '=', 'order.ref_service_id')
 				->join('bengkel', 'bengkel.id', '=', 'service.bengkel_id')
 				->join('ref_service_type', 'ref_service_type.id', '=', 'service.ref_service_id')
+				->join('ref_vehicle_type', 'ref_vehicle_type.id', '=', 'vehicle.ref_vehicle_type_id')
 				->select(
+				
 					'order.id', 
 					'order.order_date', 
 					'order.order_time', 
@@ -68,8 +70,8 @@
 					'service.bd',
 					
 					'service.ref_service_id',
-					'ref_service_type.sub',
-					'ref_service_type.name',
+					'ref_service_type.sub as service_sub',
+					'ref_service_type.name as service_name',
 					'ref_service_type.wheel',
 					'ref_service_type.description',
 					
@@ -83,7 +85,9 @@
 					'bengkel.fax',
 					'bengkel.email',
 					'bengkel.account_name',
-					'bengkel.account_number'
+					'bengkel.account_number',
+					
+					'ref_vehicle_type.type as vehicle_name'
 				);
 				
 				if (!is_null($postdata['bengkel_id'])){
@@ -93,6 +97,7 @@
 				} else {
 					$historys = $historys->get();
 				}
+				
 				
 				$result['data']=$historys;
 				
