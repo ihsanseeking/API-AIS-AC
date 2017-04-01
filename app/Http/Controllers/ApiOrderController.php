@@ -102,8 +102,8 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 					  $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
 					    cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
 					  $distance =  $angle * $earthRadius;
-						//echo "jarak : " . $distance;
-						//echo "bengkel : ". $bengkel->id;
+						echo "jarak : " . $distance;
+						echo "bengkel : ". $bengkel->name;
 					  if ($key == 0) {
 						  $distanceShort = $distance;
 						  $res['data']['latBengkel'] = $bengkel->latitude;
