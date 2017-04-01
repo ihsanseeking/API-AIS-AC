@@ -25,17 +25,8 @@
 		    }
 
 		    public function hook_after($postdata,&$result) {
-		        //This method will be execute after run the main process	
-				$bengkel_id = $postdata['bengkel_id'];
-				
-				$review = DB::table('review')
-					->select(
-						DB::raw('(sum(penilaian)/COUNT(penilaian)) as "rating"'), 
-						DB::raw('COUNT(penilaian) as "post"')
-					)
-					->where('review.bengkel_id', '=', $bengkel_id)->first();
-					
-					$result['data']=$review;
+		        //This method will be execute after run the main process
+
 		    }
 
 		}
