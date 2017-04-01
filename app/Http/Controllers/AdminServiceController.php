@@ -32,6 +32,7 @@
 			$this->col[] = ["label"=>"Bengkel","name"=>"bengkel_id","join"=>"bengkel,name"];
 			$this->col[] = ["label"=>"Kategori Service","name"=>"ref_service_id","join"=>"ref_service_type,name"];
 			$this->col[] = ["label"=>"Service","name"=>"ref_service_id","join"=>"ref_service_type,sub"];
+			$this->col[] = ["label"=>"Wheel","name"=>"ref_service_id","join"=>"ref_service_type,wheel"];
 			$this->col[] = ["label"=>"Harga Barang","name"=>"hb"];
 			$this->col[] = ["label"=>"Harga Jasa","name"=>"hj"];
 			$this->col[] = ["label"=>"Jasa Pengiriman","name"=>"jp"];
@@ -283,5 +284,3 @@
 
 
 	}
-
-
