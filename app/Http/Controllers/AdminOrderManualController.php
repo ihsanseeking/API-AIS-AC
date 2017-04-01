@@ -5,7 +5,7 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminOrderController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminOrderManualController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function __construct() {
 	    	# START CONFIGURATION DO NOT REMOVE THIS LINE
@@ -52,7 +52,16 @@
 			$this->form[] = ["label"=>"Ref Service Id","name"=>"ref_service_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Payment Status","name"=>"payment_status","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10","datatable"=>"ref_service,id"];
 			# END FORM DO NOT REMOVE THIS LINE
-
+			
+			//$custom_element = 'select bengkel_id as value, ref_service_id as label from service';
+			$custom_element = 'select bengkel_id as value, concat(bengkel_id,"-",ref_service_id) as label from service';
+			
+			$this->form[] = ['label'=>'Gender','name'=>'gender','type'=>'select','dataquery'=>$custom_element];
+			//
+			//$this->form[] = ["label"=>"Map","name"=>"map","latitude"=>"latitude","longitude"=>"longitude","address"=>"address","type"=>"googlemaps"];
+			//$custom_element = view('custom_element')->render();
+			
+			//$this->form[] = ["label"=>"Label Name","name"=>"custom_field","type"=>"custom","html"=>$custom_element];
 			/* 
 	        | ---------------------------------------------------------------------- 
 	        | Sub Module
