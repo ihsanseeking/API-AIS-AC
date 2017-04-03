@@ -56,6 +56,8 @@
 						//'order.area_id as order_area',
 						//'order.is_emergency as order_emergency',
 						//order.status as order_status',
+						'order.jarak as order_jarak',
+						'order.biaya_jarak as order_biaya_jarak',
 						//'order.method as order_method',
 						//'order.payment_status as order_payment_status',
 						
@@ -105,7 +107,7 @@
 						'service.hj as service_hj',
 						'service.jp as service_jp',
 						'service.bd as service_bd',
-						DB::raw('(hb + hj + jp) as service_total'),
+						DB::raw('(hb + hj + jp + biaya_jarak) as service_total'),
 						
 						//'service.ref_service_id as service_type_id',
 						'ref_service_type.sub as service_sub',
@@ -139,6 +141,8 @@
 						'order.area_id as order_area',
 						//'order.is_emergency as order_emergency',
 						//order.status as order_status',
+						'order.jarak as order_jarak',
+						'order.biaya_jarak as order_biaya_jarak',
 						//'order.method as order_method',
 						//'order.payment_status as order_payment_status',
 						
@@ -188,7 +192,7 @@
 						'service.hj as service_hj',
 						'service.jp as service_jp',
 						'service.bd as service_bd',
-						DB::raw('(hb + hj + jp) as service_total'),
+						DB::raw('(hb + hj + jp + biaya_jarak) as service_total'),
 						
 						//'service.ref_service_id as service_type_id',
 						'ref_service_type.sub as service_sub',
@@ -224,6 +228,8 @@
 						//'order.status as order_status',
 						//'order.method as order_method',
 						//'order.payment_status as order_payment_status',//order.status as order_status',
+						//'order.jarak as order_jarak',
+						//'order.biaya_jarak as order_biaya_jarak',
 						//'order.method as order_method',
 						//'order.payment_status as order_payment_status',
 						/*
@@ -273,7 +279,7 @@
 						//'service.hj as service_hj',
 						//'service.jp as service_jp',
 						//'service.bd as service_bd',
-						//DB::raw('(hb + hj + jp) as service_total'),
+						//DB::raw('(hb + hj + jp +biaya_jarak) as service_total'),
 						
 						//'service.ref_service_id as service_type_id',
 						'ref_service_type.sub as service_sub',
@@ -307,6 +313,8 @@
 						//'order.area_id as order_area',
 						//'order.is_emergency as order_emergency',
 						//order.status as order_status',
+						//order.jarak as order_jarak',
+						//order.biaya_jarak as order_biaya_jarak',
 						//'order.method as order_method',
 						//'order.payment_status as order_payment_status',
 						/*
@@ -356,7 +364,7 @@
 						//'service.hj as service_hj',
 						//'service.jp as service_jp',
 						//'service.bd as service_bd',
-						//DB::raw('(hb + hj + jp) as service_total'),
+						//DB::raw('(hb + hj + jp + biaya_jarak) as service_total'),
 						
 						//'service.ref_service_id as service_type_id',
 						'ref_service_type.sub as service_sub',
