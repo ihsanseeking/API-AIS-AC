@@ -35,6 +35,7 @@
 			$this->col[] = ["label"=>"Service Time","name"=>"service_time"];
 			$this->col[] = ["label"=>"Service Location","name"=>"service_location"];
 			$this->col[] = ["label"=>"Latitude","name"=>"latitude"];
+			$this->col[] = ["label"=>"No Hp Pelanggan","name"=>"customer_id","join"=>"customer,cellphone"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE

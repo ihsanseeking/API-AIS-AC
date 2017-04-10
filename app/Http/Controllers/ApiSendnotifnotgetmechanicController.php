@@ -32,10 +32,10 @@
 
 				$config=[];
 				$config['content'] = "Tidak mendapatkan bengkel";
-				//$config['to'] = CRUDBooster::adminPath('customer/detail/'.$postdata['id_customer']);
-				$config['to'] = CRUDBooster::adminPath('order_Manual/detail/'.$postdata['id']);
-				$config['id_cms_users'] = [2];
-				$test = CRUDBooster::sendNotification($config);
+				$config['to'] = CRUDBooster::adminPath('order/detail/'.$postdata['id']);
+				//$config['to'] = CRUDBooster::adminPath('order_Manual/detail/'.$postdata['id']);
+				$config['id_cms_users'] = [1];
+				CRUDBooster::sendNotification($config);
 		    }
 
 		}
