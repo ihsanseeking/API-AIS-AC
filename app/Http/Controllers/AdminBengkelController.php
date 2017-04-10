@@ -29,6 +29,7 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
+			$this->col[] = ["label"=>"Id","name"=>"id"];
 			$this->col[] = ["label"=>"Name","name"=>"name"];
 			$this->col[] = ["label"=>"Bengkel Type","name"=>"ref_bengkel_type_id","join"=>"ref_bengkel_type,name"];
 			$this->col[] = ["label"=>"Customer","name"=>"customer_id","join"=>"customer,name"];

@@ -29,8 +29,10 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
+			$this->col[] = ["label"=>"Bengkel Id","name"=>"bengkel_id"];
 			$this->col[] = ["label"=>"Bengkel","name"=>"bengkel_id","join"=>"bengkel,name"];
 			$this->col[] = ["label"=>"Kategori Service","name"=>"ref_service_id","join"=>"ref_service_type,name"];
+			$this->col[] = ["label"=>"ID Service","name"=>"ref_service_id","join"=>"ref_service_type,id"];
 			$this->col[] = ["label"=>"Service","name"=>"ref_service_id","join"=>"ref_service_type,sub"];
 			$this->col[] = ["label"=>"Wheel","name"=>"ref_service_id","join"=>"ref_service_type,wheel"];
 			$this->col[] = ["label"=>"Harga Barang","name"=>"hb"];

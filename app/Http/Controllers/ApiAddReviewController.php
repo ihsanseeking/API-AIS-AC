@@ -5,12 +5,12 @@
 		use DB;
 		use CRUDBooster;
 
-		class ApiDetailBengkelController extends \crocodicstudio\crudbooster\controllers\ApiController {
+		class ApiAddReviewController extends \crocodicstudio\crudbooster\controllers\ApiController {
 
 		    function __construct() {    
-				$this->table       = "bengkel";        
-				$this->permalink   = "detail_bengkel";    
-				$this->method_type = "get";    
+				$this->table       = "review";        
+				$this->permalink   = "add_review";    
+				$this->method_type = "post";    
 		    }
 		
 
@@ -26,11 +26,7 @@
 
 		    public function hook_after($postdata,&$result) {
 		        //This method will be execute after run the main process
-				$data = $result['data'];
-				$hasil = DB::table('bengkel')
-					->where('id', $data{0}->id)
-					->update(['status' => 0]);
-				//	echo $hasil;
+
 		    }
 
 		}

@@ -5,14 +5,14 @@
 		use DB;
 		use CRUDBooster;
 define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxHxlv1ZZcq3NkraLMlZNZLo0sxwirEipUOrfwNrb5iLCfEpM-WD1yhuA6-WzsG8saqpVr125dHndOcJm6EPuwV7QmsEB5wiyvu2Ohf');
-		class ApiSendnotiftocustomerController extends \crocodicstudio\crudbooster\controllers\ApiController {
+		class ApiSendnotiffinishController extends \crocodicstudio\crudbooster\controllers\ApiController {
 
-		    function __construct() {
-				$this->table       = "bengkel";
-				$this->permalink   = "sendnotiftocustomer";
-				$this->method_type = "post";
+		    function __construct() {    
+				$this->table       = "bengkel";        
+				$this->permalink   = "sendnotiffinish";    
+				$this->method_type = "get";    
 		    }
-
+		
 
 		    public function hook_before(&$postdata) {
 		        //This method will be execute before run the main process
@@ -21,10 +21,12 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 
 		    public function hook_query(&$query) {
 		        //This method is to customize the sql query
-
 		    }
 
 		    public function hook_after($postdata,&$result) {
+				DB::table('bengkel')
+					->where('id', $result['id'])
+					->update(['status' => 0]);
 		        //This method will be execute after run the main process
 				$res = array();
 				$payload = array();
@@ -36,29 +38,13 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$res['data']['image'] = 'https://zestblog.files.wordpress.com/2008/03/118.jpg';
 				$res['data']['payload'] = $payload;
 				$res['data']['timestamp'] = date('Y-m-d G:i:s');
-				$res['data']['type'] = 'notifBengkel';
+				$res['data']['type'] = 'notifFinish';
 
-				$bengkels = $result;
-				//echo $bengkels['id'];
-				$res['data']['bengkel'] = $bengkels;
-				$services = DB::table('service')->where('ref_service_id', '=', $postdata['service_id'])->where('bengkel_id', '=', $bengkels['id'])->get();
-				$res['data']['service'] = $services;
-				//echo "service".$services;
-				
-				$servicetypes = DB::table('ref_service_type')->where('id', '=', $services{0}->ref_service_id)->get();
-				$res['data']['service_type'] = $servicetypes;
-
-				$customer = DB::table('customer')->where('id', '=', $postdata[ 'customer_id'])->get();
-				
-				
-
-				$cusBengkel = DB::table('customer')->where('id', '=', $bengkels['customer_id'])->get();
-				$res['data']['uid_bengkel'] = $cusBengkel{0}->uid;
-
-
-
+				$cusBengkel = DB::table('customer')->where('id', '=', $result['customer_id'])->get();
+				//echo $cusBengkel;
+	
 				$fields = array(
-					'to' => $customer{0}->deviceid,
+					'to' => $cusBengkel{0}->deviceid,
 					'data' => $res,
 				);
 				$headers = array(
@@ -85,8 +71,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				if ($hasil === FALSE) {
 					die('Curl failed: ' . curl_error($ch));
 				}
-
-			}
-
+				//echo $hasil;
+		    }
 
 		}

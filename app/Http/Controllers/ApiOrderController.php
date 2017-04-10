@@ -80,7 +80,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$query = "cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - ".$batasjarak.")";
 				//echo $query;
 				$bengkels =
-				DB::table('bengkel')->whereRaw("cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - ".$batasjarak.") AND id in (select bengkel_id from service where ref_service_id = ". $postdata['idservice'].")")->get();
+				DB::table('bengkel')->whereRaw("cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - ".$batasjarak.") AND status = 0 AND id in (select bengkel_id from service where ref_service_id = ". $postdata['idservice']." )")->get();
 				$res['data']['lat'] = $postdata['latitude'];
 				$res['data']['lon'] = $postdata['longitude'];
 
@@ -102,8 +102,8 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 					  $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
 					    cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
 					  $distance =  $angle * $earthRadius;
-						echo "jarak : " . $distance;
-						echo "bengkel : ". $bengkel->name;
+						//echo "jarak : " . $distance;
+						//echo "bengkel : ". $bengkel->name;
 					  if ($key == 0) {
 						  $distanceShort = $distance;
 						  $res['data']['latBengkel'] = $bengkel->latitude;
@@ -123,18 +123,33 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				//print_r ($bengkelShort);
 				//echo 'bengkel terdekat '. $bengkelShort['name'];
 //
+				//update status bengkel 
+				DB::table('bengkel')
+					->where('id', $bengkelShort->id)
+					->update(['status' => 1]);
 				$uidBengkel = DB::table('customer')->where('id', '=', $idCustomerBengkel)->get();
 				//echo 'uid '.$uidBengkel{0};
 				$customer = DB::table('customer')->where('id', '=', $postdata['customer_id'])->get();
 				$res['data']['customer'] = $customer;
 $res['data']['bengkel'] = $bengkelShort;
-				$service = DB::table('ref_service_type')->where('id', '=', $postdata['idservice'])->get();
+				$service_type = DB::table('ref_service_type')->where('id', '=', $postdata['idservice'])->get();
+				
+				$service= DB::table('service')->where('ref_service_id', '=', $postdata['idservice'])->where('bengkel_id', '=', $bengkelShort->id)->get();
+				
+
+				
+				$res['data']['service_type'] = $service_type{0};
 				$res['data']['service'] = $service{0};
+				
 				$order  = DB::table('order')->where('id', '=', $result['id'])->get();
 				$res['data']['order'] = $order{0};
 				$result['bengkel_id'] = $bengkelShort->id;
 				$result['bengkel_name'] = $bengkelShort->name;
 				$res['data']['uid_bengkel'] = $uidBengkel{0}->uid;
+				
+				$vehicle  = DB::table('vehicle')->join('ref_vehicle_type', 'vehicle.ref_vehicle_type_id', '=', 'ref_vehicle_type.id')->join('ref_brand', 'ref_brand.id', '=', 'ref_vehicle_type.ref_brand_id')->where('vehicle.user_id', '=', $postdata['customer_id'])->get();
+				$res['data']['vehicle'] = $vehicle;
+				
 				$fields = array(
 					'to' => $uidBengkel{0}->deviceid,
 					'data' => $res,
