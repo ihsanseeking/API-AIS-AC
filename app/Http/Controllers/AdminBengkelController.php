@@ -8,34 +8,35 @@
 	class AdminBengkelController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function __construct() {
-
-			# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->title_field = "name";
-			$this->limit = "20";
-			$this->orderby = "id,desc";
-			$this->global_privilege = false;
-			$this->button_table_action = true;
-			$this->button_action_style = "button_icon";
-			$this->button_add = true;
-			$this->button_edit = true;
-			$this->button_delete = true;
-			$this->button_detail = true;
-			$this->button_show = true;
-			$this->button_filter = true;
-			$this->button_import = false;
-			$this->button_export = false;
-			$this->table = "bengkel";
+	    	# START CONFIGURATION DO NOT REMOVE THIS LINE
+			$this->table               = "bengkel";	        
+			$this->title_field         = "name";
+			$this->limit               = 20;
+			$this->orderby             = "id,desc";
+			$this->global_privilege    = FALSE;	        
+			$this->button_table_action = TRUE;   
+			$this->button_action_style = "button_icon";     
+			$this->button_add          = TRUE;
+			$this->button_delete       = TRUE;
+			$this->button_edit         = TRUE;
+			$this->button_detail       = TRUE;
+			$this->button_show         = TRUE;
+			$this->button_filter       = TRUE;        
+			$this->button_export       = FALSE;	        
+			$this->button_import       = FALSE;	
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Id","name"=>"id"];
 			$this->col[] = ["label"=>"Name","name"=>"name"];
-			$this->col[] = ["label"=>"Bengkel Type","name"=>"ref_bengkel_type_id","join"=>"ref_bengkel_type,name"];
-			$this->col[] = ["label"=>"Customer","name"=>"customer_id","join"=>"customer,name"];
-			$this->col[] = ["label"=>"Phone","name"=>"phone"];
-			$this->col[] = ["label"=>"Email","name"=>"email"];
+			$this->col[] = ["label"=>"Ref Bengkel Type Id","name"=>"ref_bengkel_type_id"];
 			$this->col[] = ["label"=>"Address","name"=>"address"];
+			$this->col[] = ["label"=>"Latitude","name"=>"latitude"];
+			$this->col[] = ["label"=>"Longitude","name"=>"longitude"];
+			$this->col[] = ["label"=>"Phone","name"=>"phone"];
+			$this->col[] = ["label"=>"Fax","name"=>"fax"];
+			$this->col[] = ["label"=>"Status","name"=>"status"];
+			$this->col[] = ["label"=>"Email","name"=>"customer_id","join"=>"customer,email"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -43,16 +44,14 @@
 			$this->form[] = ["label"=>"Name","name"=>"name","type"=>"text","validation"=>"required|string|min:3|max:70","width"=>"col-sm-10","placeholder"=>"You can only enter the letter only"];
 			$this->form[] = ["label"=>"Ref Bengkel Type Id","name"=>"ref_bengkel_type_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_bengkel_type,name"];
 			$this->form[] = ["label"=>"Address","name"=>"address","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Latitude","name"=>"latitude","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Longitude","name"=>"longitude","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Ref Area Id","name"=>"ref_area_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_area,name"];
+			$this->form[] = ["label"=>"Latitude","name"=>"latitude","type"=>"text","validation"=>"max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Longitude","name"=>"longitude","type"=>"text","validation"=>"max:255","width"=>"col-sm-10"];
 			$this->form[] = ["label"=>"Phone","name"=>"phone","type"=>"number","validation"=>"required|numeric","width"=>"col-sm-10","placeholder"=>"You can only enter the number only"];
-			$this->form[] = ["label"=>"Fax","name"=>"fax","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Email","name"=>"email","type"=>"email","validation"=>"required|min:3|max:255|email|unique:bengkel","width"=>"col-sm-10","placeholder"=>"Please enter a valid email address"];
-			$this->form[] = ["label"=>"Customer Id","name"=>"customer_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"customer,name"];
-			$this->form[] = ["label"=>"Max Order","name"=>"max_order","type"=>"number","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Account Number","name"=>"account_number","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Account Name","name"=>"account_name","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Max Order","name"=>"max_order","type"=>"number","validation"=>"integer|min:0","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Status","name"=>"status","type"=>"text","validation"=>"min:1|max:1","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Saldo","name"=>"saldo","type"=>"text","validation"=>"min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Customer Id","name"=>"customer_id","type"=>"select2","validation"=>"required","width"=>"col-sm-10","datatable"=>"customer,name"];
+			$this->form[] = ["label"=>"Email","name"=>"email","type"=>"email","validation"=>"","width"=>"col-sm-9"];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			/* 

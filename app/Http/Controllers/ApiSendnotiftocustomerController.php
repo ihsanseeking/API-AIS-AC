@@ -44,6 +44,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$services = DB::table('service')->where('ref_service_id', '=', $postdata['service_id'])->where('bengkel_id', '=', $bengkels['id'])->get();
 				$res['data']['service'] = $services;
 				//echo "service".$services;
+				//echo "bengkel id ".$bengkels['id'];
 				
 				$servicetypes = DB::table('ref_service_type')->where('id', '=', $services{0}->ref_service_id)->get();
 				$res['data']['service_type'] = $servicetypes;
@@ -55,7 +56,21 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$cusBengkel = DB::table('customer')->where('id', '=', $bengkels['customer_id'])->get();
 				$res['data']['uid_bengkel'] = $cusBengkel{0}->uid;
 
-
+				$review = DB::table('review')
+					->select(
+						DB::raw('(sum(penilaian)/COUNT(penilaian)) as "rating"'), 
+						DB::raw('COUNT(penilaian) as "post"')
+					)
+					->where('review.bengkel_id', '=', $bengkels['id'])->first();
+					if ($review->rating == null ){
+						$review->rating = 0;
+					}
+				$res['data']['review']=$review;
+				
+				//order
+				$order = DB::table('order')->where('id', '=', $postdata['order_id'])->first();
+		
+				$res['data']['order']=$order;
 
 				$fields = array(
 					'to' => $customer{0}->deviceid,

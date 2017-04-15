@@ -27,9 +27,7 @@
 		    public function hook_after($postdata,&$result) {
 		        //This method will be execute after run the main process
 				$data = $result['data'];
-				$hasil = DB::table('bengkel')
-					->where('id', $data{0}->id)
-					->update(['status' => 0]);
+				
 				//	echo $hasil;
 		    }
 

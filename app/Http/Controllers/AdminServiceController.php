@@ -35,10 +35,7 @@
 			$this->col[] = ["label"=>"ID Service","name"=>"ref_service_id","join"=>"ref_service_type,id"];
 			$this->col[] = ["label"=>"Service","name"=>"ref_service_id","join"=>"ref_service_type,sub"];
 			$this->col[] = ["label"=>"Wheel","name"=>"ref_service_id","join"=>"ref_service_type,wheel"];
-			$this->col[] = ["label"=>"Harga Barang","name"=>"hb"];
-			$this->col[] = ["label"=>"Harga Jasa","name"=>"hj"];
-			$this->col[] = ["label"=>"Jasa Pengiriman","name"=>"jp"];
-			$this->col[] = ["label"=>"Biaya Denda","name"=>"bd"];
+			$this->col[] = ["label"=>"status","name"=>"bengkel_id","join"=>"bengkel,status"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE

@@ -30,7 +30,7 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Wheel","name"=>"wheel"];
-			$this->col[] = ["label"=>"Ref Brand Id","name"=>"ref_brand_id"];
+			$this->col[] = ["label"=>"Ref Brand Id","name"=>"ref_brand_id","join"=>"ref_brand,name"];
 			$this->col[] = ["label"=>"Type","name"=>"type"];
 			$this->col[] = ["label"=>"Year","name"=>"year"];
 			# END COLUMNS DO NOT REMOVE THIS LINE

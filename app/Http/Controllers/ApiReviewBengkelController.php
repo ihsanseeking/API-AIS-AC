@@ -34,7 +34,9 @@
 						DB::raw('COUNT(penilaian) as "post"')
 					)
 					->where('review.bengkel_id', '=', $bengkel_id)->first();
-					
+					if ($review->rating == null ){
+						$review->rating = 0;
+					}
 					$result['data']=$review	;
 
 

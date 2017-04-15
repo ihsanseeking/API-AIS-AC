@@ -80,7 +80,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$query = "cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - ".$batasjarak.")";
 				//echo $query;
 				$bengkels =
-				DB::table('bengkel')->whereRaw("cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - ".$batasjarak.") AND status = 0 AND id in (select bengkel_id from service where ref_service_id = ". $postdata['idservice']." )")->get();
+				DB::table('bengkel')->whereRaw("cast(bengkel.longitude as decimal(32,8)) < (cast('".$postdata['longitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.longitude as decimal(32,8)) > (cast('".$postdata['longitude']."' as Decimal(32,8)) - ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) < (cast('".$postdata['latitude']."' as Decimal(32,8)) + ".$batasjarak.") and cast(bengkel.latitude as decimal(32,8)) > (cast('".$postdata['latitude']."' as Decimal(32,8)) - ".$batasjarak.") AND saldo >= 10000 AND status = 0 AND id in (select bengkel_id from service where ref_service_id = ". $postdata['idservice']." )")->get();
 				$res['data']['lat'] = $postdata['latitude'];
 				$res['data']['lon'] = $postdata['longitude'];
 
@@ -131,7 +131,7 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				//echo 'uid '.$uidBengkel{0};
 				$customer = DB::table('customer')->where('id', '=', $postdata['customer_id'])->get();
 				$res['data']['customer'] = $customer;
-$res['data']['bengkel'] = $bengkelShort;
+				$res['data']['bengkel'] = $bengkelShort;
 				$service_type = DB::table('ref_service_type')->where('id', '=', $postdata['idservice'])->get();
 				
 				$service= DB::table('service')->where('ref_service_id', '=', $postdata['idservice'])->where('bengkel_id', '=', $bengkelShort->id)->get();

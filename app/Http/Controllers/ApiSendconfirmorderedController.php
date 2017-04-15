@@ -26,6 +26,10 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 
 		    public function hook_after($postdata,&$result) {
 		        //This method will be execute after run the main process
+				//update data harga biaya jarak, jarak
+				DB::table('order')
+					->where('id', $postdata['id'])
+					->update(['jarak' => $postdata['jarak'], 'biaya_jarak' => $postdata['biaya_jarak']]);
 				$res = array();
 				$payload = array();
 				$payload['team'] = 'India';
@@ -38,11 +42,33 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 				$res['data']['timestamp'] = date('Y-m-d G:i:s');
 				$res['data']['type'] = 'notifOrdered';
 
-				$idbengkel = DB::table('customer')->where('uid', '=', $postdata['uidBengkel'])->get();
+				$bengkelCustomer = DB::table('customer')->where('uid', '=', $postdata['uidBengkel'])->get();
+				
+				$order = DB::table('order')->where('id', '=', $postdata['id'])->first();
+				$res['data']['lat'] = $order->latitude;
+				$res['data']['lon'] = $order->longitude;
+				
+				$customer = DB::table('customer')->where('id', '=', $order->customer_id)->get();
+				$res['data']['customer'] = $customer;
 
-
+				$bengkel = DB::table('bengkel')->whereRaw('customer_id IN (select id from customer where uid = \''.$postdata['uidBengkel'].'\')')->first();
+				$res['data']['bengkel'] = $bengkel;
+				$service_type = DB::table('ref_service_type')->where('id', '=', $order->ref_service_id)->get();
+				
+				$service= DB::table('service')->where('ref_service_id', '=', $order->ref_service_id)->where('bengkel_id', '=', $bengkel->id)->get();
+				
+				$res['data']['service_type'] = $service_type{0};
+				$res['data']['service'] = $service{0};
+				
+				$res['data']['order'] = $order;
+				$result['bengkel_id'] = $bengkel->id;
+				$result['bengkel_name'] = $bengkel->name;
+				$res['data']['uid_bengkel'] = $bengkelCustomer{0}->uid;
+				
+				$vehicle  = DB::table('vehicle')->join('ref_vehicle_type', 'vehicle.ref_vehicle_type_id', '=', 'ref_vehicle_type.id')->join('ref_brand', 'ref_brand.id', '=', 'ref_vehicle_type.ref_brand_id')->where('vehicle.user_id', '=', $order->customer_id)->get();
+				$res['data']['vehicle'] = $vehicle;
 				$fields = array(
-					'to' => $idbengkel{0}->deviceid,
+					'to' => $bengkelCustomer{0}->deviceid,
 					'data' => $res,
 				);
 				$headers = array(

@@ -26,7 +26,11 @@ define('FIREBASE_API_KEY', 'AAAAY6M1xWk:APA91bGPyB7pEdVkqk6UCT4dEqqbT7rAGgmWyGxH
 		    public function hook_after($postdata,&$result) {
 				DB::table('bengkel')
 					->where('id', $result['id'])
+					->update(['status' => 0, 'saldo' => DB::raw('saldo - 10000')]);
+				DB::table('order')
+					->where('id', $result['order_id'])
 					->update(['status' => 0]);
+				
 		        //This method will be execute after run the main process
 				$res = array();
 				$payload = array();

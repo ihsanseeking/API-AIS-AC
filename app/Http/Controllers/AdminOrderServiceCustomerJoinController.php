@@ -5,12 +5,12 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminVehicleController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminOrderServiceCustomerJoinController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function __construct() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->title_field = "id";
+			$this->title_field = "name";
 			$this->limit = "20";
 			$this->orderby = "id,desc";
 			$this->global_privilege = false;
@@ -24,23 +24,31 @@
 			$this->button_filter = true;
 			$this->button_import = false;
 			$this->button_export = false;
-			$this->table = "vehicle";
+			$this->table = "order_service_customer_join";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"User Id","name"=>"user_id"];
-			$this->col[] = ["label"=>"Name","name"=>"user_id","join"=>"customer,name"];
-			$this->col[] = ["label"=>"Ref Vehicle Type Id","name"=>"ref_vehicle_type_id","join"=>"ref_vehicle_type,type"];
-			$this->col[] = ["label"=>"Year","name"=>"year"];
+			$this->col[] = ["label"=>"ID order","name"=>"id"];
+			$this->col[] = ["label"=>"Nama Pelanggan","name"=>"name"];
+			$this->col[] = ["label"=>"Jenis Service","name"=>"ref_service_id","join"=>"ref_service_type,name"];
+			$this->col[] = ["label"=>"Tipe Service","name"=>"ref_service_id","join"=>"ref_service_type,sub"];
+			$this->col[] = ["label"=>"Lokasi Pemesanan","name"=>"service_location"];
+			$this->col[] = ["label"=>"No Hp","name"=>"customer_id","join"=>"customer,cellphone"];
+			$this->col[] = ["label"=>"Status","name"=>"status"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ["label"=>"User Id","name"=>"user_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"user,first_name"];
-			$this->form[] = ["label"=>"Ref Vehicle Type Id","name"=>"ref_vehicle_type_id","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"ref_vehicle_type,type"];
-			$this->form[] = ["label"=>"Note","name"=>"note","type"=>"textarea","validation"=>"required|string|min:5|max:5000","width"=>"col-sm-10"];
-			$this->form[] = ["label"=>"Year","name"=>"year","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Nama Pelanggan","name"=>"name","type"=>"text","validation"=>"required","width"=>"col-sm-9"];
+			$this->form[] = ["label"=>"No Hp Pelanggan","name"=>"cellphone","type"=>"text","validation"=>"required","width"=>"col-sm-9"];
+			$this->form[] = ["label"=>"Total Harga","name"=>"total_harga","type"=>"text","validation"=>"required|integer|min:0","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Tanggal Pemesanan","name"=>"order_date","type"=>"date","validation"=>"","width"=>"col-sm-9"];
+			$this->form[] = ["label"=>"lat","name"=>"order_latitude","type"=>"text","validation"=>"","width"=>"col-sm-9"];
+			$this->form[] = ["label"=>"lon","name"=>"order_longitude","type"=>"text","validation"=>"","width"=>"col-sm-9"];
+			$this->form[] = ["label"=>"Peta","name"=>"","type"=>"googlemaps","validation"=>"","width"=>"col-sm-9","latitude"=>"order_latitude","longitude"=>"order_longitude"];
+			$this->form[] = ["label"=>"Bengkel Id","name"=>"bengkel_id","type"=>"text","validation"=>"","width"=>"col-sm-9"];
+			$this->form[] = ["label"=>"Name","name"=>"name","type"=>"text","validation"=>"","width"=>"col-sm-9"];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			/* 
